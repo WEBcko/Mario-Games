@@ -19,9 +19,7 @@ header{
 }
 
 ul{
-  /* margin: 0px; */
   list-style: none;
-  /* height: 90vh; */
   width: 9vw;
   display: flex;
   gap: 5vh;
@@ -36,6 +34,7 @@ li{
 
 main{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .home_header_div_conteudo{
@@ -65,5 +64,21 @@ main{
 
 .home_jogo_destaque{
   margin-top: 10vh;
-  margin-left:14vw ;
+  width: 86vw;
+  height: 40vh;
+  margin-left: 14vw;
+  background-color: #d64f4f;
+}
+
+.home_jogos{
+  /* margin-top: 10vh; */
+  width: 86vw;
+  height: 40vh;
+  margin-left: 14vw;
+  background-color: #21e388;
+  display: flex;
+}
+
+.jogo_1{
+  text-align: center;
 }
