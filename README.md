@@ -1,3 +1,3 @@
 # Mario-Games
 
-Site que mostra jogos gratis 
+Site de jogos gratis 
