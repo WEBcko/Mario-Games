@@ -85,17 +85,20 @@ main{
   padding-left: 30px;
   padding-top: 1%;
 }
+
 .jogo_1{
-  width: 24vw;
+  width: 30%;
   padding-top: 10px;
-  text-align: center;
+  display: flex;
   gap: 10px;
   background-color: black;
   border-radius: 2%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .short_description{
-  width: 400px;
+  width: 390px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -104,4 +107,7 @@ main{
 
 .botao_pvp{
   cursor: pointer;
+}
+.title{
+  color:white;
 }
