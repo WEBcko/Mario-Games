@@ -79,8 +79,21 @@ main{
   text-align: center;
   flex-wrap: wrap;
   height: 40vh;
+  gap: 2vw;
 }
 
 .jogo_1{
   text-align: center;
+  gap: 10px;
+}
+
+.short_description{
+  width: 400px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.botao_pvp{
+  cursor: pointer;
 }
