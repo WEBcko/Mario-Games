@@ -45,12 +45,10 @@ function consultar_API() {
 consultar_API();
 
 function MostrarJogos(response) {
-  
-  for(i=0; i < 3;i++){
+  for(i=0; i < 300;i++){
      let corpo = document.createElement("div");
-     corpo.id = "jogo_1"
+     corpo.id = `jogo_${i}`
      corpo.className = "jogo_1"
-
      let conteudo = `<img src="${response[i].thumbnail}" alt="" id="thumbnail">
                     <p id="title" class="title">${response[i].title}</p>
                     <p id="short_description" class="short_description">${response[i].short_description}</p>`
