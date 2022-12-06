@@ -5,18 +5,21 @@
 // .then((response) => {
 //   response.json()
 //   // .then(data => console.log(data));
-
 // })
 
 // .catch(() => window.alert(`error`));
+
 let pai_de_todos = document.getElementById("home_jogos");
 let corpo = document.createElement("div");
 corpo.id = "jogo_1"
 corpo.className = "jogo_1"
+
 let corpo1 = document.createElement("div");
 corpo1.className = "jogo_1"
+
 let corpo2 = document.createElement("div");
 corpo2.className = "jogo_1"
+
 let corpo3 = document.createElement("div");
 
 const options = {
@@ -28,24 +31,18 @@ const options = {
   }
 };
 
-  let dale;
 
 fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
 
   .then(response => response.json())
   .then(function (response){
-    // let nome_jogos = response[0].title;
-    // let img_jogos =  response[0].thumbnail;
-    // let descricao_jogos =  response[0].short_description;
     // console.log(response);
-    dalee(response);
-  
-   
+    MostrarJogos(response); 
   })
 
   .catch(err => console.error(err))
 
-  function dalee(response){
+  function MostrarJogos(response){
     let conteudo = `<img src="${response[0].thumbnail}" alt="" id="thumbnail">
                     <p id="title">${response[0].title}</p>
                     <p id="short_description">${response[0].short_description}</p>`
