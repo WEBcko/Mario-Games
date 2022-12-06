@@ -73,10 +73,12 @@ main{
 .home_jogos{
   /* margin-top: 10vh; */
   width: 86vw;
-  height: 40vh;
   margin-left: 14vw;
   background-color: #21e388;
   display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  height: 40vh;
 }
 
 .jogo_1{
