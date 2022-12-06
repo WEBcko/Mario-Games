@@ -28,7 +28,7 @@ const options = {
 
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
 
-let teste;
+let teste = 3;
 
 function consultar_API() {
   fetch(url, options)
