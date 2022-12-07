@@ -2,6 +2,9 @@
 // Url da API
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
 
+const video_banner = document.getElementsByName("teste_imagem")
+const load_more = document.getElementById("botao_carregar_mais");
+
 // Parametros para consulta na API, metodo e header
 const options = {
     method: 'GET',
@@ -41,17 +44,23 @@ async function MostrarJogos(el) {
     for (i = agora; i < agora + 3; i++) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
-        corpo.className = "jogo_1"
+        corpo.className = "jogo"
 
-        let conteudo = `<img src="${data[i].thumbnail}" alt="" id="thumbnail">
-                    <p id="title" class="title">${data[i].title}</p>
-                    <p id="short_description" class="short_description">${data[i].short_description}</p>`
+        let conteudo = `<a href="#user" class="jogo_conteudo">
+                        <img src="${response[i].thumbnail}" alt="" id="thumbnail">
+                        <p id="title" class="title">${response[i].title}</p>
+                        <p id="short_description" class="short_description">${response[i].short_description}</p>
+                        </a> `
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
     }
 
-    agora += 3;
+    agora += 10;
 }
 
 MostrarJogos();
+
+
+load_more.addEventListener("click", consultar_API);
+
