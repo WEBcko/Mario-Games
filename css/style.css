@@ -29,6 +29,7 @@ header .logo {
   color: #FFFFFF;
   font-family: 'Zen Dots', cursive;
   font-size: 1.6em;
+  margin-left: 2%;
 }
 
 header .logo i {
