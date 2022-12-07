@@ -217,8 +217,8 @@ main {
 
 .div_jogo_destaque_descricao{
   /* background-color: #463db9; */
-  width: 34vw;
-  height: 16vh;
+  width: 70%;
+  /* height: 16vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -229,14 +229,14 @@ main {
   grid-column: 2;
   grid-row: 1;
   position: relative;
-  top: 160px;
+  top: 25%;
 
 }
 
 .home_jogo_destaque {
   margin-top: 10vh;
   width: 86vw;
-  height: 56vh;
+  /* height: 56vh; */
   margin-left: 14vw;
   background-color: #111;
 
@@ -244,6 +244,8 @@ main {
   justify-content: center;
   align-items: center;
   display: grid;
+  padding-left: 6%;
+  grid-column-gap:5%;
 }
 
 .jogo_destaque_conteudo{
@@ -262,7 +264,7 @@ main {
 }
 
 video{
-  width: 886px;
+  width: 652px;
   object-fit: contain;
   /* height: 213px; */
   height: auto;
@@ -276,13 +278,14 @@ video{
 
 .home_jogo_destaque #teste_imagem{
 
-  height: 60%;
+  height: 50%;
   align-self: normal;
   grid-column: 2;
   grid-row: 1;
-  justify-self: center;
+  /* justify-self: center; */
   position: relative;
   margin-top: 3%;
+  margin-left: 10%;
 }
 
 .alinha_botao{
