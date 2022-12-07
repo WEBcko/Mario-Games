@@ -2,10 +2,6 @@
 // Url da API
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
 
-let agora = 0;
-
-const short = document.getElementById("botao_pvp");
-
 // Parametros para consulta na API, metodo e header
 const options = {
     method: 'GET',
@@ -15,32 +11,41 @@ const options = {
     }
 };
 
-let pai_de_todos = document.getElementById("home_jogos");
+async function consultar_API() {
+    try {
 
-function consultar_API() {
-    fetch(url, options)
-        .then(response => response.json())
-        .then(function (response) {
-            console.log(response);
-            MostrarJogos(response);
-        })
+        const response = await fetch(url, options);
+        let data = await response.json();
 
-        .catch(err => console.error(err))
+        return data;
+    }
+    catch (err) {
+        console.log(err);
+    }
 
 }
 
-consultar_API();
 
-function MostrarJogos(response) {
+let agora = 0;
 
-    for (i = agora; i < agora+3; i++) {
+const botoes_categoria = document.querySelectorAll(".games");
+botoes_categoria.forEach(el => el.addEventListener('click', MostrarJogos(this)));
+
+async function MostrarJogos(el) {
+
+    let data = await consultar_API();
+    console.log(el);
+
+    let pai_de_todos = document.getElementById("home_jogos");
+
+    for (i = agora; i < agora + 3; i++) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = "jogo_1"
 
-        let conteudo = `<img src="${response[i].thumbnail}" alt="" id="thumbnail">
-                    <p id="title" class="title">${response[i].title}</p>
-                    <p id="short_description" class="short_description">${response[i].short_description}</p>`
+        let conteudo = `<img src="${data[i].thumbnail}" alt="" id="thumbnail">
+                    <p id="title" class="title">${data[i].title}</p>
+                    <p id="short_description" class="short_description">${data[i].short_description}</p>`
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
@@ -49,5 +54,4 @@ function MostrarJogos(response) {
     agora += 3;
 }
 
-
-short.addEventListener("click", consultar_API);
+MostrarJogos();
