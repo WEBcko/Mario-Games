@@ -4,6 +4,7 @@
 body{
   padding:0px;
   margin:0px;
+  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 /* <===============NAV BAR===================> */
@@ -136,8 +137,33 @@ main{
   text-align: center;
   flex-wrap: wrap;
   height: 40vh;
+  gap: 3vw;
+  padding-left: 30px;
+  padding-top: 1%;
 }
 
 .jogo_1{
-  text-align: center;
+  width: 30%;
+  padding-top: 10px;
+  display: flex;
+  gap: 10px;
+  background-color: black;
+  border-radius: 2%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.short_description{
+  width: 390px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  color: bisque;
+}
+
+.botao_pvp{
+  cursor: pointer;
+}
+.title{
+  color:white;
 }
