@@ -168,6 +168,7 @@ main {
 }
 
 .jogo {
+  display: block;
   width: 30%;
   padding-top: 10px;
   display: flex;
@@ -195,6 +196,11 @@ main {
   color: white;
 }
 
+/* .jogo:hover{
+  transform: scale(1.4);
+  z-index: 2;
+} */
+
 /* ===========botao carregar mais ============= */
 .home_jogos_carregar_mais {
   width: 86vw;
@@ -221,10 +227,9 @@ main {
 
 /* =================jogo destaque ==================== */
 
-.div_jogo_destaque video{
-
+/* .div_jogo_destaque video{
   width: 90%;
-}
+} */
 
 .div_jogo_destaque_descricao{
   /* background-color: #463db9; */
@@ -277,9 +282,7 @@ main {
 video{
   width: 619px;
   object-fit: contain;
-  /* height: 213px; */
   height: auto;
-  /* margin-left: 200px; */
 
   grid-column: 1;
   grid-row: 1/2;
