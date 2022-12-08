@@ -73,6 +73,9 @@ header .home_header_div_conteudo div:hover {
   top: 10vh;
   position: fixed;
   z-index: 1;
+
+  display: flex;
+  justify-content: center;
 }
 
 .container_side_bar {
@@ -81,6 +84,9 @@ header .home_header_div_conteudo div:hover {
   gap: 4vh;
   flex-direction: column;
   margin: 0vh;
+
+  align-items: center;
+
 }
 
 .home_side_bar .container_side_bar .home {
@@ -110,21 +116,26 @@ header .home_header_div_conteudo div:hover {
 }
 
 .category_title {
-  margin-left: 36%;
+  /* margin-left: 36%; */
 }
 
 .home_side_bar_options{
   height: 75vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  
+
+  /* justify-content: center;
+  align-items: center;   */
 }
 
 /* <=============== SIDE MENU-ANIMAÇOES ===================> */
 
-.container_side_bar a:hover {
+.home_side_bar_align a:hover {
   background-color: #27CAD4;
   transition: 0.3s;
+  height: 10%;
+  border-radius: 10%;
 }
 
 /* <=============== SIDE MENU ===================> */
