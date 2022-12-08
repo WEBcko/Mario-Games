@@ -136,12 +136,11 @@ header .home_header_div_conteudo div:hover {
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-/* .category_title {
-  margin-left: 36%;
-} */
+.category_title {
+  margin-left: 20%;
+}
 
 .home_side_bar_options{
   height: 75vh;
