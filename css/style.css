@@ -157,6 +157,7 @@ main {
 }
 
 .jogo {
+  display: block;
   width: 30%;
   padding-top: 10px;
   display: flex;
@@ -182,6 +183,11 @@ main {
 
 .title {
   color: white;
+}
+
+.jogo:hover{
+  transform: scale(1.4);
+  z-index: 2;
 }
 
 /* ===========botao carregar mais ============= */

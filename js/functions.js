@@ -5,6 +5,8 @@ const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
 const video_banner = document.getElementsByName("teste_imagem")
 const load_more = document.getElementById("botao_carregar_mais");
 
+
+
 // Parametros para consulta na API, metodo e header
 const options = {
     method: 'GET',
@@ -47,14 +49,26 @@ async function MostrarJogos(el) {
         corpo.className = "jogo"
 
         let conteudo = `<a href="#user" class="jogo_conteudo">
-                        <img src="${response[i].thumbnail}" alt="" id="thumbnail">
-                        <p id="title" class="title">${response[i].title}</p>
-                        <p id="short_description" class="short_description">${response[i].short_description}</p>
-                        </a> `
+                        <img src="${data[i].thumbnail}" alt="" id="thumbnail">
+                        <p id="title" class="title">${data[i].title}</p>
+                        <p id="short_description" class="short_description">${data[i].short_description}</p>
+                        </a> 
+                        <button type="button" id="botao_fav" value="${data[i].id}">FAVORITAR</button>`
+       
+        
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
+    
     }
+
+    const botao_favoritos = document.getElementById("botao_fav");
+    botao_favoritos.addEventListener("click", add_favoritos)
+
+    function add_favoritos() {
+        console.log(botao_favoritos.value);
+    }
+   
 
     agora += 10;
 }
@@ -62,5 +76,8 @@ async function MostrarJogos(el) {
 MostrarJogos();
 
 
+
+
 load_more.addEventListener("click", consultar_API);
+
 
