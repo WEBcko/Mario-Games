@@ -47,9 +47,9 @@ async function MostrarJogos(el) {
         corpo.className = "jogo"
 
         let conteudo = `<a href="#user" class="jogo_conteudo">
-                        <img src="${response[i].thumbnail}" alt="" id="thumbnail">
-                        <p id="title" class="title">${response[i].title}</p>
-                        <p id="short_description" class="short_description">${response[i].short_description}</p>
+                        <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="teste">
+                        <p id="title" class="title">${data[i].title}</p>
+                        <p id="short_description" class="short_description">${data[i].short_description}</p>
                         </a> `
 
         corpo.innerHTML += conteudo;
@@ -59,8 +59,19 @@ async function MostrarJogos(el) {
     agora += 10;
 }
 
+// async function TesteHover(){
+
+//     var box = document.getElementById("jogo_1");
+//     var imagem = document.getElementsByClassName("jogo")
+
+//     box.addEventListener("mouseover", function(){
+//         alert("ola");
+//     })
+// }
+
+// TesteHover();
 MostrarJogos();
 
 
-load_more.addEventListener("click", consultar_API);
+load_more.addEventListener("click", MostrarJogos);
 

@@ -129,12 +129,20 @@ header .home_header_div_conteudo div:hover {
   align-items: center;   */
 }
 
+.home_side_bar_align{
+
+  width: 70%;
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+
 /* <=============== SIDE MENU-ANIMAÇOES ===================> */
 
-.home_side_bar_align a:hover {
+.home_side_bar_align a:hover{
   background-color: #27CAD4;
-  transition: 0.3s;
-  height: 10%;
+  transition: 0.6s;
+  height: 6.5%;
   border-radius: 10%;
 }
 
