@@ -1,11 +1,31 @@
 
 // Url da API
-const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
+const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity'
 
-const video_banner = document.getElementsByName("teste_imagem")
+
 const load_more = document.getElementById("botao_carregar_mais");
 
 
+
+let contador = 0;
+
+
+//funcao de favoritos (salvo em LOCAL STORAGE)
+function favoritos(a) {
+    //pega o item "favoritos" no LocalStorage
+    let favoritos = localStorage.getItem("favoritos");
+    //transforma o JSON em Array para ser utilizado 
+    let dale = JSON.parse(favoritos);
+    console.log(dale);
+    //procura o valor o ID do jogo
+    let index = dale.indexOf(a.value);
+    console.log(index);
+    //se o ID do jogo for encontrado entao deleta ele do array, se nao existir o ID do jogo adiciona ele ao arry
+    index != -1 ? dale.splice(index, 1) : dale.push(a.value);
+    //Salva ele no LocalStorage novamente 
+    localStorage.setItem('favoritos', JSON.stringify(dale))
+
+}
 
 // Parametros para consulta na API, metodo e header
 const options = {
@@ -31,7 +51,7 @@ async function consultar_API() {
 }
 
 
-let agora = 0;
+let agora = 1;
 
 const botoes_categoria = document.querySelectorAll(".games");
 botoes_categoria.forEach(el => el.addEventListener('click', MostrarJogos(this)));
@@ -41,9 +61,30 @@ async function MostrarJogos(el) {
     let data = await consultar_API();
     console.log(el);
 
+    // aqui sera mostrado o abnner de jogo em destaque//
+    const jogo_banner = document.getElementById("home_jogo_destaque");
+
+    let conteudo_jogo_destaque = `<img id="teste_imagem" src="${data[0].thumbnail}" alt="">
+                                      <video autoplay="true" loop="true" id="video_destaque">
+                                        <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
+                                      </video>
+                                      <div class="div_jogo_destaque_descricao">
+                                          <div class="alinha_botao">
+                                            <p class="jogo_destaque_conteudo">${data[0].title}</p>
+                                            <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
+                                               <button type="button"  value="${data[0].id}" onclick="favoritos(this)" >FAVORITAR</button>
+                                            </div>
+                                          </div>
+                                          <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
+                                      </div>`
+
+
+    jogo_banner.innerHTML = conteudo_jogo_destaque;
+    //fim do banner de destaque//
+
     let pai_de_todos = document.getElementById("home_jogos");
 
-    for (i = agora; i < agora + 3; i++) {
+    for (i = agora; i < agora + 10; i++) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = "jogo"
@@ -53,31 +94,20 @@ async function MostrarJogos(el) {
                         <p id="title" class="title">${data[i].title}</p>
                         <p id="short_description" class="short_description">${data[i].short_description}</p>
                         </a> 
-                        <button type="button" id="botao_fav" value="${data[i].id}">FAVORITAR</button>`
-       
-        
+                        <button type="button"  value="${data[i].id}" onclick="favoritos(this)" >FAVORITAR</button>`
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
+
+
+    }
     
-    }
-
-    const botao_favoritos = document.getElementById("botao_fav");
-    botao_favoritos.addEventListener("click", add_favoritos)
-
-    function add_favoritos() {
-        console.log(botao_favoritos.value);
-    }
-   
-
     agora += 10;
+    
 }
 
 MostrarJogos();
 
-
-
-
-load_more.addEventListener("click", consultar_API);
+load_more.addEventListener("click", MostrarJogos);
 
 
