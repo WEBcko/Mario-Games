@@ -139,7 +139,14 @@ header .home_header_div_conteudo div:hover {
 }
 
 .category_title {
+  width: 100%;
   margin-left: 20%;
+  vertical-align: middle;
+
+}
+.category_title img{
+  vertical-align: top;
+  margin-right: 2%;
 }
 
 .home_side_bar_options{
