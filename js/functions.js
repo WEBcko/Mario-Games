@@ -84,7 +84,7 @@ async function MostrarJogos(el) {
 
     let pai_de_todos = document.getElementById("home_jogos");
 
-    for (i = agora; i < agora + 10; i++) {
+    for (i = agora; i < agora + 9; i++) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = "jogo"
@@ -103,10 +103,41 @@ async function MostrarJogos(el) {
     }
     
     agora += 10;
+
+
+
+    //   function TesteHoverEntra(){
+    //     var box = document.getElementById("jogo_1");
+    //     // var box2 = document.getElementByClassName("category");
     
+    //     box.addEventListener("mouseover", function(){
+    
+    //         alert("OII");
+    //     })
+    
+    //     // box.addEventListener("")
+    //   }  
+
+    //   function TesteHoverSair(){
+    //     var box = document.getElementById("jogo_1");
+    //     // var box2 = document.getElementByClassName("category");
+    
+    //     box.addEventListener("mouseout", function(){
+    
+    //         alert("TA FORA");
+            
+    //     })
+    //   }
+
+    //   TesteHoverEntra();
+    //   TesteHoverSair();
 }
 
+
+
 MostrarJogos();
+
+
 
 load_more.addEventListener("click", MostrarJogos);
 

@@ -180,6 +180,18 @@ main {
   text-decoration: none;
 }
 
+.jogo:hover  .short_description{
+
+  transition: 500ms linear;
+  display: flex;
+}
+
+.jogo:hover {
+  transition: 0ms linear;
+  transform: scale(1.1);
+  z-index: 2;
+}
+
 .jogo_conteudo{
   text-decoration: none;
 }
@@ -190,6 +202,8 @@ main {
   word-wrap: break-word;
   word-break: break-word;
   color: bisque;
+
+  display: none;
 }
 
 .title {
@@ -310,3 +324,5 @@ video{
 }
 
 /* ==========jogo destaque FIM ==================== */
+/* ====================== */
+
