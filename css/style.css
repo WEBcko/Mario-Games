@@ -25,7 +25,7 @@ header {
 }
 
 header .logo {
-  width: 30%;
+  width: 22%;
   color: #FFFFFF;
   font-family: 'Zen Dots', cursive;
   font-size: 1.6em;
@@ -36,8 +36,25 @@ header .logo i {
 }
 
 header .home_header_div_conteudo {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
   color: #FFFFFF;
+}
+
+header .home_header_div_conteudo div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 1em;
+  padding-top: 0em;
+  padding-bottom: 0em;
 }
 
 header .fav {
@@ -55,7 +72,7 @@ header .fav i {
 /* <=============== NAV BAR-ANIMAÇOES ===================> */
 
 header .home_header_div_conteudo div:hover {
-  color: #27CAD4;
+  background-color: #27CAD4;
   transition: 0.3s;
 }
 
@@ -105,6 +122,12 @@ header .home_header_div_conteudo div:hover {
   text-decoration: none;
 } */
 
+.home_side_bar_align{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .category{
   width: 100%;
   height: 60px;
@@ -116,7 +139,14 @@ header .home_header_div_conteudo div:hover {
 }
 
 .category_title {
-  /* margin-left: 36%; */
+  width: 100%;
+  margin-left: 20%;
+  vertical-align: middle;
+
+}
+.category_title img{
+  vertical-align: top;
+  margin-right: 2%;
 }
 
 .home_side_bar_options{
@@ -134,8 +164,6 @@ header .home_header_div_conteudo div:hover {
 .home_side_bar_align a:hover {
   background-color: #27CAD4;
   transition: 0.3s;
-  height: 10%;
-  border-radius: 10%;
 }
 
 /* <=============== SIDE MENU ===================> */
@@ -147,15 +175,7 @@ main {
   flex-wrap: wrap;
 }
 
-.home_header_div_conteudo {
-  width: 25vw;
-  display: flex;
-  gap: 5px;
-  justify-content: space-around;
-}
-
 .home_jogos {
-  /* margin-top: 10vh; */
   width: 86vw;
   margin-left: 14vw;
   background-color: #21e388;
@@ -168,7 +188,9 @@ main {
 }
 
 .jogo {
+  display: block;
   width: 30%;
+  
   padding-top: 10px;
   display: flex;
   gap: 10px;
@@ -177,13 +199,39 @@ main {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  transition: 500ms;
 }
 
+/* hover da tela de jogos */
+.div_descricao_jogo{
+  display: none;
+}
+
+.jogo:hover{
+  transform:scale(1.2);
+  /* height: 280px; */
+  /* position: relative; */
+  /* position: absolute; */
+  z-index: 100;
+}
+
+.jogo:hover .div_descricao_jogo {
+  display: flex;
+  flex-direction: row;
+}
+
+.jogo:hover .div_jogo_conteudo_footer{
+  /* display: flex; */
+  flex-direction: column;
+}
+
+/* fim  do hover da tela de jogos */
 .jogo_conteudo{
   text-decoration: none;
 }
 
 .short_description {
+  /* display: none; */
   width: 390px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -193,6 +241,31 @@ main {
 
 .title {
   color: white;
+}
+
+
+/* .jogo:hover{
+  transform: scale(1.4);
+  z-index: 2;
+} */
+
+.div_jogo_conteudo_footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_jogo_conteudo_footer button{
+  width: 100px;
+    height: 25px;
+    border: none;
+    background: #0066A2;
+    color: white;
+    font: bold 12px arial, sans-serif;
+    text-shadow: none;
+    cursor: pointer;
 }
 
 /* ===========botao carregar mais ============= */
@@ -221,10 +294,9 @@ main {
 
 /* =================jogo destaque ==================== */
 
-.div_jogo_destaque video{
-
+/* .div_jogo_destaque video{
   width: 90%;
-}
+} */
 
 .div_jogo_destaque_descricao{
   /* background-color: #463db9; */
@@ -234,13 +306,12 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   color: white;
-
   /* display: 	none; */
-
   grid-column: 2;
   grid-row: 1;
   position: relative;
-  top: 25%;
+  top: 16vh;
+
 
 }
 
@@ -250,12 +321,10 @@ main {
   /* height: 56vh; */
   margin-left: 14vw;
   background-color: #111;
-
   /* display: flex; */
   /* justify-content: center; */
   align-items: center;
   display: grid;
-
   grid-column-gap:6%;
 }
 
@@ -275,12 +344,9 @@ main {
 }
 
 video{
-  width: 619px;
+  width: 550px;
   object-fit: contain;
-  /* height: 213px; */
   height: auto;
-  /* margin-left: 200px; */
-
   grid-column: 1;
   grid-row: 1/2;
   justify-self: center;
