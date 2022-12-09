@@ -2,11 +2,7 @@
 // Url da API
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity'
 
-
 const load_more = document.getElementById("botao_carregar_mais");
-
-let contador = 0;
-
 
 // Parametros para consulta na API, metodo e header
 const options = {
@@ -17,10 +13,10 @@ const options = {
     }
 };
 
-async function consultar_API(link) {
+async function consultar_API() {
     try {
 
-        const response = await fetch(link, options);
+        const response = await fetch(url, options);
         let data = await response.json();
 
         return data;
