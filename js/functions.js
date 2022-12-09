@@ -15,7 +15,6 @@ const options = {
 
 async function consultar_API() {
     try {
-
         const response = await fetch(url, options);
         let data = await response.json();
 
@@ -54,6 +53,8 @@ async function MostrarJogos(el) {
     let data = await consultar_API();
     console.log(el);
 
+    
+
     // aqui sera mostrado o banner de jogo em destaque//
     const jogo_banner = document.getElementById("home_jogo_destaque");
 
@@ -82,28 +83,66 @@ async function MostrarJogos(el) {
         corpo.id = `jogo_${i}`
         corpo.className = `jogo`
 
-        let conteudo = `<div>
-                        <a href="#user" class="jogo_conteudo">
-                        <img src="${data[i].thumbnail}" alt="" id="thumbnail">
-                        </a> 
-                        <div class="div_jogo_conteudo_footer"><p id="title" class="title">${data[i].title}</p>
-                        
-                        <button type="button"  value="${data[i].id}" onclick="favoritos(this)" >FAVORITAR</button></div>
+        let conteudo = `<div onmouseover="hover_in(this)" onmouseout="hover_out(this)" class="teste_12">
+                            <input type="hidden" name="descricao_jogo_${i}" value="${data[i].short_description}"></input>
+                            <a href="#user" class="jogo_conteudo">
+                                <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
+                            </a> 
+                            <div class="div_jogo_conteudo_footer">
+                                <p id="title" class="title">${data[i].title}</p>
+                                <button type="button"  value="${data[i].id}" onclick="favoritos(this)">FAVORITAR</button>
+                            </div>
                         </div>
                         `
+            // < p class="jogo_destaque_conteudo" > ${ data[0].short_description }</p >
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
-
-        // <p id="short_description" class="short_description">${data[i].short_description}</p>
-
     }
 
     agora += 10;
+}
+
+function hover_in(data){
+    // document.querySelector(".teste_12").style = "display:none;"
+    let corpo_hover = document.createElement("div"); 
+    corpo_hover.className = `corpo_hover` 
+    // console.log(data)
+    let conteudo = `<a href="#user" class="jogo_conteudo_hover">
+                        <img src="${data.querySelector("img").src}" alt="" id="thumbnail" class="imagem_jogo_hover">
+                    </a> 
+                    <div class="div_jogo_conteudo_footer">
+                        <p id="title" class="title_hover">${data.querySelectorAll("p")[0].title}</p>
+                        <button type="button"  value="${data.querySelectorAll("button")[0].value}" onclick="favoritos(this)" >FAVORITAR</button>
+                    </div>
+                        <p class="jogo_destaque_conteudo_hover">${data.querySelector("input").value}</p>
+                    </div>`
+
+    // console.log(data.querySelectorAll("button").value)
+    corpo_hover.innerHTML = conteudo;
+    document.getElementById("jogo_1").appendChild(corpo_hover);
 
 }
 
+function hover_out(data){
+    let conteudo = `<a href="#user" class="jogo_conteudo_hover">
+                        <img src="${data.querySelector("img").src}" alt="" id="thumbnail" class="imagem_jogo_hover">
+                    </a> 
+                    <div class="div_jogo_conteudo_footer">
+                        <p id="title" class="title_hover">${data.querySelectorAll("p")[0].title}</p>
+                        <button type="button"  value="${data.querySelectorAll("button")[0].value}" onclick="favoritos(this)" >FAVORITAR</button>
+                    </div>
+                     <p class="jogo_destaque_conteudo_hover">${data.querySelector("input").value}</p>
+                    `
+                    //    window.alert(`asd`)
+
+    // corpo.innerHTML = conteudo;
+    document.getElementById("jogo_1").innerHTML=conteudo;
+    // pai_de_todos.appendChild(corpo);
+}
 
 MostrarJogos();
 
 load_more.addEventListener("click", MostrarJogos);
+
+

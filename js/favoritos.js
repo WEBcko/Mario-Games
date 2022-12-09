@@ -12,13 +12,13 @@ function favoritos(a) {
 
     //transforma o JSON em Array para ser utilizado
     let dale = JSON.parse(favoritos_salvos);
-    console.log(dale);
+    // console.log(dale);
     //procura o valor o ID do jogo
     let index = dale.indexOf(a.value);
     // console.log(index);
     //se o ID do jogo for encontrado entao deleta ele do array, se nao existir o ID do jogo adiciona ele ao arry
     index != -1 ? dale.splice(index, 1) : dale.push(a.value);
-    console.log(dale);
+    // console.log(dale);
     //Salva ele no LocalStorage novamente 
     localStorage.setItem('favoritos', JSON.stringify(dale))
 }

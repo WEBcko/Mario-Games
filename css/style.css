@@ -144,7 +144,7 @@ header .home_header_div_conteudo div:hover {
   vertical-align: middle;
 
 }
-.category_title img{
+.category_title {
   vertical-align: top;
   margin-right: 2%;
 }
@@ -243,12 +243,6 @@ main {
   color: white;
 }
 
-
-/* .jogo:hover{
-  transform: scale(1.4);
-  z-index: 2;
-} */
-
 .div_jogo_conteudo_footer{
     display: flex;
     flex-direction: row;
@@ -267,6 +261,17 @@ main {
     text-shadow: none;
     cursor: pointer;
 }
+
+/* HOVER */
+.corpo_hover {
+  position: absolute;
+  width: 418px;
+  height: 348px;
+  color: red;
+  background-color: #35c318;
+}
+
+/* HOVER*/
 
 /* ===========botao carregar mais ============= */
 .home_jogos_carregar_mais {
