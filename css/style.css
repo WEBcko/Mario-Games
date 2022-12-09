@@ -144,7 +144,6 @@ main {
 }
 
 .home_jogos {
-  /* margin-top: 10vh; */
   width: 86vw;
   margin-left: 14vw;
   background-color: #21e388;
@@ -159,6 +158,7 @@ main {
 .jogo {
   display: block;
   width: 30%;
+  
   padding-top: 10px;
   display: flex;
   gap: 10px;
@@ -167,13 +167,39 @@ main {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  transition: 500ms;
 }
 
+/* hover da tela de jogos */
+.div_descricao_jogo{
+  display: none;
+}
+
+.jogo:hover{
+  transform:scale(1.2);
+  /* height: 280px; */
+  /* position: relative; */
+  /* position: absolute; */
+  z-index: 100;
+}
+
+.jogo:hover .div_descricao_jogo {
+  display: flex;
+  flex-direction: row;
+}
+
+.jogo:hover .div_jogo_conteudo_footer{
+  /* display: flex; */
+  flex-direction: column;
+}
+
+/* fim  do hover da tela de jogos */
 .jogo_conteudo{
   text-decoration: none;
 }
 
 .short_description {
+  /* display: none; */
   width: 390px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -185,10 +211,30 @@ main {
   color: white;
 }
 
+
 /* .jogo:hover{
   transform: scale(1.4);
   z-index: 2;
 } */
+
+.div_jogo_conteudo_footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_jogo_conteudo_footer button{
+  width: 100px;
+    height: 25px;
+    border: none;
+    background: #0066A2;
+    color: white;
+    font: bold 12px arial, sans-serif;
+    text-shadow: none;
+    cursor: pointer;
+}
 
 /* ===========botao carregar mais ============= */
 .home_jogos_carregar_mais {
