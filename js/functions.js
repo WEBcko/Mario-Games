@@ -15,7 +15,6 @@ const options = {
 
 async function consultar_API() {
     try {
-
         const response = await fetch(url, options);
         let data = await response.json();
 
@@ -44,6 +43,7 @@ async function filtrar(category = null, plataform = 'all', sorted = 'popularity'
 
 filtrar();
 
+
 let agora = 1;
 
 const botoes_categoria = document.querySelectorAll(".games");
@@ -57,11 +57,11 @@ async function MostrarJogos(el) {
     // aqui sera mostrado o banner de jogo em destaque//
     const jogo_banner = document.getElementById("home_jogo_destaque");
 
-    let conteudo_jogo_destaque = `<img id="teste_imagem" src="${data[0].thumbnail}" alt="">
+    let conteudo_jogo_destaque = ` <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
                                       <video autoplay="true" loop="true" id="video_destaque">
                                         <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
                                       </video>
-                                      <div class="div_jogo_destaque_descricao">
+                                      <div class="destaque_descricao">
                                           <div class="alinha_botao">
                                             <p class="jogo_destaque_conteudo">${data[0].title}</p>
                                             <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
@@ -71,32 +71,31 @@ async function MostrarJogos(el) {
                                           <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
                                       </div>`
 
-
     jogo_banner.innerHTML = conteudo_jogo_destaque;
     //fim do banner de destaque//
 
     let pai_de_todos = document.getElementById("home_jogos");
 
     for (i = agora; i < agora + 10; i++) {
+        let corpo_hover = document.createElement("div");
+        corpo_hover.className = `jogo_hover${i}`
+
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = `jogo`
 
-        let conteudo = `<div>
-                        <a href="#user" class="jogo_conteudo">
-                        <img src="${data[i].thumbnail}" alt="" id="thumbnail">
+        let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
+                            <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
                         </a> 
-                        <div class="div_jogo_conteudo_footer"><p id="title" class="title">${data[i].title}</p>
-                        
-                        <button type="button"  value="${data[i].id}" onclick="favoritos(this)" >FAVORITAR</button></div>
+                        <div class="div_jogo_conteudo_footer">
+                            <p id="title" class="title">${data[i].title}</p>
+                            <button  class="teste_123" type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star"></i></button>
                         </div>
-                        `
+                        <p id="short_description" class="short_description">${data[i].short_description}</p>`
+
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
-
-        // <p id="short_description" class="short_description">${data[i].short_description}</p>
-
     }
 
     agora += 10;
@@ -104,6 +103,20 @@ async function MostrarJogos(el) {
 }
 
 
+// function hover(a) {
+//     const icon = a.querySelector("i");
+//     let verf_hover = icon.classList.contains("teste_hover");
+
+//     if(verf_hover){
+//         icon.classList.remove("teste_hover")
+//     }else{
+//         icon.classList.add("teste_hover")
+//     }
+// }
+
+
 MostrarJogos();
 
 load_more.addEventListener("click", MostrarJogos);
+
+
