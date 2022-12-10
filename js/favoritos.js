@@ -1,3 +1,4 @@
+
 //funcao de favoritos (salvo em LOCAL STORAGE)
 function favoritos(a) {
     //pega o item "favoritos" no LocalStorage
@@ -21,5 +22,15 @@ function favoritos(a) {
     // console.log(dale);
     //Salva ele no LocalStorage novamente 
     localStorage.setItem('favoritos', JSON.stringify(dale))
+
+
+    const icon = a.querySelector("i");
+    let verf_hover = icon.classList.contains("teste_hover");
+
+    if (verf_hover) {
+        icon.classList.remove("teste_hover")
+    } else {
+        icon.classList.add("teste_hover")
+    }
 }
 

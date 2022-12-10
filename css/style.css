@@ -21,7 +21,7 @@ header {
   top: 0px;
   left: 0px;
   position: fixed;
-  z-index: 2;
+  z-index: 200;
 }
 
 header .logo {
@@ -55,6 +55,7 @@ header .home_header_div_conteudo div {
   padding: 1em;
   padding-top: 0em;
   padding-bottom: 0em;
+  cursor: pointer;
 }
 
 header .fav {
@@ -202,30 +203,6 @@ main {
   transition: 500ms;
 }
 
-/* hover da tela de jogos */
-.div_descricao_jogo{
-  display: none;
-}
-
-.jogo:hover{
-  transform:scale(1.2);
-  /* height: 280px; */
-  /* position: relative; */
-  /* position: absolute; */
-  z-index: 100;
-}
-
-.jogo:hover .div_descricao_jogo {
-  display: flex;
-  flex-direction: row;
-}
-
-.jogo:hover .div_jogo_conteudo_footer{
-  /* display: flex; */
-  flex-direction: column;
-}
-
-/* fim  do hover da tela de jogos */
 .jogo_conteudo{
   text-decoration: none;
 }
@@ -262,15 +239,22 @@ main {
     cursor: pointer;
 }
 
-/* HOVER */
-.corpo_hover {
-  position: absolute;
-  width: 418px;
-  height: 348px;
-  color: red;
-  background-color: #35c318;
+.fa-star{
+  color:white;
 }
 
+/* HOVER */
+
+.jogo:hover{
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  z-index: 100;
+}
+
+.teste_hover{
+  color: yellow;
+}
 /* HOVER*/
 
 /* ===========botao carregar mais ============= */
@@ -299,11 +283,7 @@ main {
 
 /* =================jogo destaque ==================== */
 
-/* .div_jogo_destaque video{
-  width: 90%;
-} */
-
-.div_jogo_destaque_descricao{
+.destaque_descricao{
   /* background-color: #463db9; */
   width: 70%;
   /* height: 16vh; */
