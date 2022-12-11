@@ -25,14 +25,14 @@ function favoritos(a) {
 
 
     const icon = a.querySelector("i");
-    let verf_hover = icon.classList.contains("teste_hover");
+    let verf_hover = icon.classList.contains("favoritado");
 
     if (verf_hover) {
-        icon.classList.remove("teste_hover")
+        icon.classList.remove("favoritado")
     } else {
-        icon.classList.add("teste_hover")
+        icon.classList.add("favoritado")
     }
-}
+}   
 
 
 async function printarFavoritos() {
