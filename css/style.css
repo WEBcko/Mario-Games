@@ -35,7 +35,7 @@ header .logo i {
   margin-right: 5%;
 }
 
-header .home_header_div_conteudo {
+header .plataforms {
   display: flex;
   justify-content: space-around;
   width: 30%;
@@ -44,7 +44,8 @@ header .home_header_div_conteudo {
   color: #FFFFFF;
 }
 
-header .home_header_div_conteudo div {
+header .plataforms a {
+  color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +57,15 @@ header .home_header_div_conteudo div {
   padding-top: 0em;
   padding-bottom: 0em;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+header .plataforms a:hover {
+  color: #74b1d4 !important;
+}
+
+.selected {
+  color: #0590e1 !important;
 }
 
 header .fav {
@@ -70,12 +80,7 @@ header .fav i {
   vertical-align: text-top;
 }
 
-/* <=============== NAV BAR-ANIMAÇOES ===================> */
 
-header .home_header_div_conteudo div:hover {
-  background-color: #27CAD4;
-  transition: 0.3s;
-}
 
 /* <=============== NAV BAR ===================> */
 
@@ -123,7 +128,7 @@ header .home_header_div_conteudo div:hover {
   text-decoration: none;
 } */
 
-.home_side_bar_align{
+.categorys{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -137,6 +142,10 @@ header .home_header_div_conteudo div:hover {
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.category svg {
+  color: #FFFFFF;
 }
 
 .category_title {
@@ -162,7 +171,7 @@ header .home_header_div_conteudo div:hover {
 
 /* <=============== SIDE MENU-ANIMAÇOES ===================> */
 
-.home_side_bar_align a:hover {
+.categorys a:hover {
   background-color: #27CAD4;
   transition: 0.3s;
 }
