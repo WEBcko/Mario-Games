@@ -14,41 +14,43 @@
 <body>
   <header>
     <div class="logo"><i class="fa-solid fa-gamepad"></i>MARIO GAMES</div>
-    <div class="home_header_div_conteudo">
-      <div>PC</div>
-      <div>BROWSER</div>
-      <div>ALL</div>
+
+    <div class="plataforms">
+      <a role="button" onclick="filterGames(this)" data-plataform="pc" tabindex="0">PC</a>
+      <a role="button" onclick="filterGames(this)" data-plataform="browser" tabindex="0">BROWSER</a>
+      <a role="button" onclick="filterGames(this)" data-plataform="all" tabindex="0" class="selected">ALL</a>
     </div>
-    <div class="fav">FAVORITOS<i class="fa-solid fa-star"></i></div>
+
+    <div class="fav" onclick="printarFavoritos()">FAVORITOS<i class="fa-solid fa-star"></i></div>
   </header>
   <main>
     <div class="home_side_bar">
-      <div class="home_side_bar_align">
-              <a href="#" class="category">
+      <div class="categorys">
+              <a href="#" class="category selected" onclick="filterGames(this)" data-category="home">
                 <span class="category_title"> <i class="fa-solid fa-house"></i> HOME </span>
               </a>
-              <a href="#" class="category">
+              <a href="#" class="category" onclick="filterGames(this)" data-category="shooter">
                 <span class="category_title"> <i class="fa-solid fa-crosshairs"></i> SHOOTER </span>
               </a>
-              <a href="#" class="category">
-                <span class="category_title"> <i class="fa-solid fa-tree"></i> SURVIVAL </span>
+              <a href="#" class="category" onclick="filterGames(this)" data-category="mmorpg">
+                <span class="category_title"> <i class="fa-solid fa-globe"></i> MMORPG </span>
               </a>
-              <a href="#" class="category">
-                <span class="category_title"> <i class="fa-solid fa-rocket"></i> SPACE </span>
+              <a href="#" class="category" onclick="filterGames(this)" data-category="strategy">
+                <span class="category_title"> <i class="fa-solid fa-chess"></i> STRATEGY </span>
               </a>
-              <a href="#" class="category">
+              <a href="#" class="category" onclick="filterGames(this)" data-category="fighting">
                 <span class="category_title"> <i class="fa-solid fa-hand-fist"></i> FIGHTING </span>
               </a>
-              <a href="#" class="category">
-                <span class="category_title"> <i class="fa-brands fa-gitlab"></i> ANIME </span>
+              <a href="#" class="category" onclick="filterGames(this)" data-category="card">
+                <span class="category_title"> <img src="/public/hearthstone.svg"> CARD </span>
               </a>
-              <a href="#" class="category">
-                <span class="category_title"> <i class="fa-solid fa-dragon"></i> FANTASY </span>
+              <a href="#" class="category" onclick="filterGames(this)" data-category="battle-royale">
+                <span class="category_title"> <i class="fa-solid fa-parachute-box"></i> BATTLE ROYALE </span>
               </a>
-              <a href="#" class="category">
-                <span class="category_title"> <i class="fa-solid fa-flag-checkered"></i> RACING </span>
+              <a href="#" class="category" onclick="filterGames(this)" data-category="moba">
+                <span class="category_title"> <i class="fa-solid fa-flag-checkered"></i> MOBA </span>
               </a>
-              <a href="#" class="category">
+              <a href="#" class="category" onclick="filterGames(this)" data-category="permadeath">
                 <span class="category_title"> <i class="fa-solid fa-skull"></i> PERMADEATH </span>
               </a>
       </div>

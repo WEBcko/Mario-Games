@@ -1,8 +1,6 @@
 
 // Url da API
-const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity'
-
-const load_more = document.getElementById("botao_carregar_mais");
+const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
 
 // Parametros para consulta na API, metodo e header
 const options = {
@@ -13,49 +11,66 @@ const options = {
     }
 };
 
-async function consultar_API() {
+
+// aqui sera mostrado o banner de jogo em destaque//
+const jogo_banner = document.getElementById("home_jogo_destaque");
+
+let pai_de_todos = document.getElementById("home_jogos");
+
+// Faz o request e formata para json
+const consultAPI = async (cmp = "") => {
     try {
-        const response = await fetch(url, options);
-        let data = await response.json();
-
-        return data;
-    }
-    catch (err) {
-        console.log(err);
+        const response = await fetch(url + cmp, options);
+        return await response.json();
+    } catch (error) {
+        console.log(error);
     }
 }
 
-async function filtrar(category = null, plataform = 'all', sorted = 'popularity'){
+async function filterGames(cho) {
 
-    let link = url + '?sort-by' + sorted;
+    let plataform = cho.dataset.plataform;
+    let category = cho.dataset.category;
 
-    if (category) {
-        link += "&category=" + category;
+    choDad = cho.parentElement;
+    choDad.querySelector(".selected").classList.remove('selected');
+
+    cho.classList.add("selected");
+
+    if (cho.dataset.category == undefined){
+       category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
     }
 
-    if (plataform) {
-        link += "&plataform=" + plataform;
+    if (cho.dataset.plataform == undefined){
+        plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
     }
 
-    console.log(link);
+    jogo_banner.innerHTML = null;
+    pai_de_todos.innerHTML = null;
+    agora = 1;
+    
+    let filterS, filterC, filterP;
+
+    filterC = `category=${category}`;
+    filterP = `plataform=${plataform}`;
+    filterS = 'sort-by=popularity'
+
+    if (category === "home"){
+        filterC = null;
+    }
+
+    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") +  `&${filterS}`;
+
+    console.log(cmp);
+    MostrarJogos(await  consultAPI(cmp));
 
 }
 
-filtrar();
-
+const load_more = document.getElementById("botao_carregar_mais");
 
 let agora = 1;
 
-const botoes_categoria = document.querySelectorAll(".games");
-botoes_categoria.forEach(el => el.addEventListener('click', MostrarJogos));
-
-async function MostrarJogos(el) {
-
-    let data = await consultar_API();
-    console.log(el);
-
-    // aqui sera mostrado o banner de jogo em destaque//
-    const jogo_banner = document.getElementById("home_jogo_destaque");
+function MostrarJogos(data) {
 
     let conteudo_jogo_destaque = ` <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
                                       <video autoplay="true" loop="true" id="video_destaque">
@@ -74,9 +89,13 @@ async function MostrarJogos(el) {
     jogo_banner.innerHTML = conteudo_jogo_destaque;
     //fim do banner de destaque//
 
-    let pai_de_todos = document.getElementById("home_jogos");
 
     for (i = agora; i < agora + 10; i++) {
+
+        if (data[i] == undefined || data[i] == null){
+            break;
+        }
+
         let corpo_hover = document.createElement("div");
         corpo_hover.className = `jogo_hover${i}`
 
@@ -101,22 +120,3 @@ async function MostrarJogos(el) {
     agora += 10;
 
 }
-
-
-// function hover(a) {
-//     const icon = a.querySelector("i");
-//     let verf_hover = icon.classList.contains("teste_hover");
-
-//     if(verf_hover){
-//         icon.classList.remove("teste_hover")
-//     }else{
-//         icon.classList.add("teste_hover")
-//     }
-// }
-
-
-MostrarJogos();
-
-load_more.addEventListener("click", MostrarJogos);
-
-
