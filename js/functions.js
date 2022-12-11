@@ -1,4 +1,4 @@
-
+let jogos;
 // Url da API
 const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity'
 
@@ -18,7 +18,7 @@ async function consultar_API() {
         const response = await fetch(url, options);
         let data = await response.json();
 
-        return data;
+         return data;
     }
     catch (err) {
         console.log(err);
@@ -87,11 +87,14 @@ async function MostrarJogos(el) {
         let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
                             <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
                         </a> 
+                        <div> 
+                            <p id="short_description" class="short_description">${data[i].short_description}</p> 
+                        </div>
                         <div class="div_jogo_conteudo_footer">
                             <p id="title" class="title">${data[i].title}</p>
                             <button  class="teste_123" type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star"></i></button>
                         </div>
-                        <p id="short_description" class="short_description">${data[i].short_description}</p>`
+                        `
 
 
         corpo.innerHTML += conteudo;
@@ -101,18 +104,6 @@ async function MostrarJogos(el) {
     agora += 10;
 
 }
-
-
-// function hover(a) {
-//     const icon = a.querySelector("i");
-//     let verf_hover = icon.classList.contains("teste_hover");
-
-//     if(verf_hover){
-//         icon.classList.remove("teste_hover")
-//     }else{
-//         icon.classList.add("teste_hover")
-//     }
-// }
 
 
 MostrarJogos();

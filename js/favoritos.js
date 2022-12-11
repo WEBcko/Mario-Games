@@ -7,7 +7,7 @@ function favoritos(a) {
     if (favoritos_salvos == undefined){
         //cria o item LOCAL com chave "favoritos" e valor array vazio
         localStorage.setItem("favoritos", JSON.stringify([]));
-        //atualiza a variavel favoritos com o valor novo que ao e nulo
+        //atualiza a variavel favoritos com o valor novo que nao e nulo
         favoritos_salvos = localStorage.getItem("favoritos");
     }
 
