@@ -62,7 +62,7 @@ async function filterGames(cho) {
     let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") +  `&${filterS}`;
 
     console.log(cmp);
-    MostrarJogos(await  consultAPI(cmp));
+    MostrarJogos(await consultAPI(cmp));
 
 }
 
@@ -71,7 +71,7 @@ const load_more = document.getElementById("botao_carregar_mais");
 let agora = 1;
 
 function MostrarJogos(data) {
-    console.log(data)
+    
     let conteudo_jogo_destaque = ` <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
                                       <video autoplay="true" loop="true" id="video_destaque">
                                         <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
