@@ -114,6 +114,11 @@ function MostrarJogos(data) {
 
         let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
                             <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
+                            
+                            <video autoplay="true" loop="true" id="video_jogo">
+                                        <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
+                            </video>
+                        
                         </a> 
                         <div> 
                             <p id="short_description" class="short_description">${data[i].short_description}</p> 
