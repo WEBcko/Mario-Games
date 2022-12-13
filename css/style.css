@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 body {
   padding: 0px;
@@ -250,6 +251,8 @@ main {
   word-wrap: break-word;
   word-break: break-word;
   color: rgb(255, 184, 213);
+  font-family: 'Titillium Web', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .title {
