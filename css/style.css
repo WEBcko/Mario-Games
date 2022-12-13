@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 body {
   padding: 0px;
@@ -231,6 +232,14 @@ main {
   justify-content: space-around;
 }
 
+.jogo #video_jogo{
+
+  display: none;
+  width: 60%;
+  /* display: flex; */
+  
+}
+
 .jogo_conteudo{
   text-decoration: none;
 }
@@ -242,6 +251,8 @@ main {
   word-wrap: break-word;
   word-break: break-word;
   color: rgb(255, 184, 213);
+  font-family: 'Titillium Web', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .title {
@@ -282,8 +293,21 @@ main {
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   z-index: 100;
-  background-color: #363636;
+  background-color: #1c1c1c;
   transition: 500ms;
+}
+
+.jogo:hover .imagem_jogo{
+
+  display: none;
+}
+
+.jogo:hover #video_jogo{
+
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  margin-left: 100px;
 }
 
 .jogo:hover .title{
