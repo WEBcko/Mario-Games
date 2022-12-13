@@ -356,15 +356,12 @@ main {
 
 
 .home_jogo_destaque {
-  margin-top: 12vh;
-  width: 81.2vw;
-  height: 55vh;
-  margin-left: 15.5vw;
-  background-color: #0f0f0f;
-  align-items: center;
-  display: grid;
-  grid-column-gap:6%;
-  border-radius: 10px;
+  display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 14vw;
+    margin-top: 10vh;
+    gap: 20px;
 }
 
 .jogo_destaque_conteudo{
