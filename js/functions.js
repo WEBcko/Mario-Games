@@ -71,7 +71,16 @@ const load_more = document.getElementById("botao_carregar_mais");
 let agora = 1;
 
 function MostrarJogos(data) {
-    
+
+    favoritos_salvos = localStorage.getItem("favoritos");
+    favoritos_salvos = JSON.parse(favoritos_salvos);
+
+    if (favoritos_salvos == undefined) {
+        localStorage.setItem("favoritos", JSON.stringify([]));
+        favoritos_salvos = localStorage.getItem("favoritos");
+    }
+
+    console.log(data)
     let conteudo_jogo_destaque = ` <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
                                       <video autoplay="true" loop="true" id="video_destaque">
                                         <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
@@ -80,7 +89,7 @@ function MostrarJogos(data) {
                                           <div class="alinha_botao">
                                             <p class="jogo_destaque_conteudo">${data[0].title}</p>
                                             <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
-                                               <button type="button" value="${data[0].id}" onclick="favoritos(this)" >FAVORITAR</button>
+                                               <button  class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritados" : "" }" type="button" value="${data[0].id}" onclick="favoritos(this)" >FAVORITAR</button>
                                             </div>
                                           </div>
                                           <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
@@ -111,13 +120,22 @@ function MostrarJogos(data) {
                         </div>
                         <div class="div_jogo_conteudo_footer">
                             <p id="title" class="title">${data[i].title}</p>
-                            <button  class="teste_123" type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star"></i></button>
+                            <button  type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[i].id).toString()) != -1 ? "favoritado" : "" }"></i></button>
                         </div>`
 
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
+
+
+        // if (favoritos_salvos.indexOf((data[0].id).toString()) == 0){
+
+        // }
     }
+
+    // let teste = (data[0]).toString();
+    // console.log(teste)
+    // console.log(favoritos_salvos.indexOf((data[0].id).toString()));
 
     agora += 10;
 

@@ -288,7 +288,7 @@ main {
   color: #333333;
 }
 
-.teste_hover{
+.favoritado{
   transition: 500ms;
   color: yellow;
 }
