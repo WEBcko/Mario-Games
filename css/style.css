@@ -252,10 +252,10 @@ main {
 }
 
 .div_jogo_conteudo_footer button{
-    width: 100px;
+    width: 50px;
     height: 50px;
     border: none;
-    border-radius: 4px;
+    border-radius: 100%;
     background: #00000047;
     color: white;
     font: bold 12px arial, sans-serif;
@@ -323,71 +323,101 @@ main {
 
 .destaque_descricao{
   /* background-color: #463db9; */
-  width: 70%;
+  /* width: 70%; */
   /* height: 16vh; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  color: white;
+  color: white; */
   /* display: 	none; */
-  grid-column: 2;
+  /* grid-column: 2;
   grid-row: 1;
   position: relative;
-  top: 16vh;
+  top: 16vh; */
+  display: flex;
+  width: 35%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
+.conteudo_destaque{
+  display: flex;
+  flex-direction: column;
+}
+
+
 .home_jogo_destaque {
-  margin-top: 10vh;
+  /* margin-top: 10vh;
   width: 86vw;
   height: 56vh;
   margin-left: 14vw;
   background-color: #111;
   align-items: center;
   display: grid;
-  grid-column-gap:6%;
+  grid-column-gap:6%; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 14vw;
+  margin-top: 10vh;
+  gap: 20px;
 }
 
 .jogo_destaque_conteudo{
-  margin-left:15px;
+  /* margin-left:15px; */
+  text-align: center;
 }
 
 .div_jogos_destaque_botao_favoritos button{
-  width: 100px;
+  /* width: 100px;
   height: 25px;
   border: none;
   background: #0066A2;
   color: white;
   font: bold 12px arial, sans-serif;
   text-shadow: none;
-  cursor: pointer;
+  cursor: pointer; */
+  width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 100%;
+    background: #00000047;
+    color: white;
+    font: bold 12px arial, sans-serif;
+    text-shadow: none;
+    cursor: pointer;
 }
 
 video{
-  width: 550px;
+  /* width: 550px;
   object-fit: contain;
   height: auto;
   grid-column: 1;
   grid-row: 1/2;
   justify-self: center;
   align-self: center;
-  margin-left: 9%;
+  margin-left: 9%; */
+  width: 850px;
 }
 
 .home_jogo_destaque #teste_imagem{
-  height: 50%;
+  /* height: 50%;
   align-self: normal;
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 1; */
   /* justify-self: center; */
-  position: relative;
+  /* position: relative;
   margin-top: 5%;
-  margin-left: 12%;
+  margin-left: 12%; */
+  width: 500px;
 }
 
 .alinha_botao{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* ==========jogo destaque FIM ==================== */
