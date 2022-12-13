@@ -81,7 +81,7 @@ function MostrarJogos(data) {
     }
 
     console.log(data)
-    console.log(data[0].id);
+
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
                                             <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
@@ -147,8 +147,8 @@ function MostrarJogos(data) {
 }
 
 // filterGames(document.querySelector(".category"));
-MostrarJogos();
+    MostrarJogos(bruh);
 
-load_more.addEventListener("click", MostrarJogos);
+    load_more.addEventListener("click", MostrarJogos);
 
 
