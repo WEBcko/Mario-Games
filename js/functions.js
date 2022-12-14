@@ -12,10 +12,10 @@ const options = {
 
 let jogosNow;
 
-// aqui sera mostrado o banner de jogo em destaque//
+// DIV DE JOGO EM DESTAQUE
 const jogo_banner = document.getElementById("home_jogo_destaque");
 
-//aqui sao os jogos que seram mostrados
+// DIV DE LISTA JOGOS
 let pai_de_todos = document.getElementById("home_jogos");
 
 // Faz o request e formata para json
@@ -118,11 +118,13 @@ function MostrarJogos(data = jogosNow) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = `jogo`
+        corpo.setAttribute("onmouseover", "this.querySelector('#video_jogo').play()");
+        corpo.setAttribute("onmouseout", "this.querySelector('#video_jogo').pause();this.querySelector('#video_jogo').currentTime=0;");
 
         let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
                             <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
                             
-                            <video autoplay="true" loop="true" id="video_jogo">
+                            <video loop="true" id="video_jogo">
                                         <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
                             </video>
                         
@@ -142,8 +144,10 @@ function MostrarJogos(data = jogosNow) {
 
 }
 
+// EXIBE OS JOGOS POR POPUALRIDADE NA HOME
 consultAPI().then(data => {
     
     MostrarJogos(data);
     
 });
+
