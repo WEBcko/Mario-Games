@@ -377,7 +377,7 @@ main {
 .jogo:hover .short_description{
   color: #ffffff;
   display: flex;
-  top: 50%;
+  top: 55%;
   right: 20px;
   left: 20px;
   position: absolute;
