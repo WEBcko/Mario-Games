@@ -146,7 +146,6 @@ header .fav:hover{
   width: 100%;
   background-color: #0b0b0b;
   margin-top: 10%;
-
 }
 
 .category{
@@ -189,9 +188,9 @@ header .fav:hover{
 
 /* <=============== SIDE MENU-ANIMAÇOES ===================> */
 
-.categorys a:hover {
+.categorys .category:hover {
   background-color: #d81e5b;
-  transition: 0.3s;
+  transition: 0.5s;
   color: #FFFFFF;
 }
 
@@ -223,6 +222,8 @@ main {
   padding-top: 10px;
   display: flex;
   gap: 10px;
+  
+
   background-color: #0f0f0f;
   border-radius: 2%;
   flex-direction: column;
@@ -230,6 +231,37 @@ main {
   text-decoration: none;
   transition: 500ms;
   justify-content: space-around;
+
+  position: relative;
+}
+.jogo::before{
+
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-top: 5px solid #d81e5b;
+  border-right: 5px solid #d81e5c;
+  border-top-style: outset;
+  border-right-style: outset;
+  top: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.jogo::after{
+
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-bottom: 5px solid #d81e5b;
+  border-left: 5px solid #d81e5b;
+  border-bottom-style: outset;
+  border-left-style: outset;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
 }
 
 .jogo #video_jogo{
@@ -297,6 +329,23 @@ main {
   transition: 500ms;
 }
 
+.jogo:hover::before{
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+}
+
+.jogo:hover::after{
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+  /* border-bottom: 5px solid #d81e5b;
+  border-right: 5px solid #d81e5b;
+  border-left: none;
+  right: 0;
+  left: unset; */
+}
+
 .jogo:hover .imagem_jogo{
 
   display: none;
@@ -305,8 +354,8 @@ main {
 .jogo:hover #video_jogo{
 
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
   margin-left: 100px;
 }
 
