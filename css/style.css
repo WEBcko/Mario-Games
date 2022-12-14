@@ -224,7 +224,10 @@ main {
   gap: 10px;
   
 
-  background-color: #0f0f0f;
+  background-color:#0f0f0f;
+  /* background-color: #1c1c1c; */
+  background-color: none;
+  /* background-image:linear-gradient(#0b0b0b, #ff5d784b); */
   border-radius: 2%;
   flex-direction: column;
   align-items: center;
@@ -278,18 +281,22 @@ main {
 }
 
 .short_description {
-  /* display: none; */
+  display: none;
   width: 390px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
-  color: rgb(255, 184, 213);
+  color: rgb(255, 255, 255);
   font-family: 'Titillium Web', sans-serif;
   letter-spacing: 0.5px;
 }
 
 .title {
-  color: rgb(255, 184, 213);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Titillium Web', sans-serif;
   
 }
 
@@ -322,11 +329,13 @@ main {
 
 /* HOVER */
 .jogo:hover{
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
+  /* -webkit-transform: scale(1.1); */
+  /* -ms-transform: scale(1.1); */
   transform: scale(1.1);
   z-index: 100;
-  background-color: #1c1c1c;
+  /* background-color: #1c1c1c; */
+  background-image:linear-gradient(#0b0b0b, #ff5d784b);
+  background-color: none  ;
   transition: 500ms;
 }
 
@@ -362,10 +371,26 @@ main {
 .jogo:hover .title{
   color: #ffffff;
   font-size: 20px;
+
 }
 
 .jogo:hover .short_description{
   color: #ffffff;
+  display: flex;
+  top: 50%;
+  right: 20px;
+  left: 20px;
+  position: absolute;
+  /* padding-bottom: 30px; */
+  font-size: 14px;
+}
+
+.jogo:hover .div_jogo_conteudo_footer{
+ 
+  /* background-color: #0066A2; */
+  margin-top: 60px;   
+  /* margin-bottom: 10px; */
+  
 }
 
 .favoritado{
