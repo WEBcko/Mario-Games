@@ -18,9 +18,6 @@ const jogo_banner = document.getElementById("home_jogo_destaque");
 //aqui sao os jogos que seram mostrados
 let pai_de_todos = document.getElementById("home_jogos");
 
-//botao de carregar mais
-const load_more = document.getElementById("botao_carregar_mais");
-
 // Faz o request e formata para json
 const consultAPI = async (cmp = "") => {
     try {
@@ -70,8 +67,7 @@ async function filterGames(cho) {
 
 }
 
-function MostrarJogos(data=jogosNow) {   
-    // data = jogosNow;
+function MostrarJogos(data = jogosNow) {   
     
     jogosNow = data;
     console.log(jogosNow)
@@ -151,11 +147,3 @@ consultAPI().then(data => {
     MostrarJogos(data);
     
 });
-
-
-
-load_more.addEventListener("click", MostrarJogos);
-
-
-
-
