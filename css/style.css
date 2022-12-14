@@ -270,13 +270,15 @@ main {
 .jogo #video_jogo{
 
   display: none;
-  width: 60%;
+  width: 90%;
   /* display: flex; */
   
 }
 
 .jogo_conteudo{
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .short_description {
@@ -365,7 +367,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -379,7 +380,7 @@ main {
 .jogo:hover .short_description{
   color: #ffffff;
   display: flex;
-  top: 50%;
+  top: 55%;
   right: 20px;
   left: 20px;
   position: absolute;
