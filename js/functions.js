@@ -37,29 +37,29 @@ async function filterGames(cho) {
 
     cho.classList.add("selected");
 
-    if (cho.dataset.category == undefined){
-       category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
+    if (cho.dataset.category == undefined) {
+        category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
     }
 
-    if (cho.dataset.plataform == undefined){
+    if (cho.dataset.plataform == undefined) {
         plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
     }
 
     jogo_banner.innerHTML = null;
     pai_de_todos.innerHTML = null;
     agora = 1;
-    
+
     let filterS, filterC, filterP;
 
     filterC = `category=${category}`;
     filterP = `plataform=${plataform}`;
     filterS = 'sort-by=popularity'
 
-    if (category === "home"){
+    if (category === "home") {
         filterC = null;
     }
 
-    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") +  `&${filterS}`;
+    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") + `&${filterS}`;
 
     console.log(cmp);
     MostrarJogos(await consultAPI(cmp));
@@ -70,7 +70,9 @@ const load_more = document.getElementById("botao_carregar_mais");
 
 let agora = 1;
 
-function MostrarJogos(data) {
+function MostrarJogos(data) {   
+
+    let quant_jogos = document.querySelectorAll(".jogo").length;
 
     favoritos_salvos = localStorage.getItem("favoritos");
     favoritos_salvos = JSON.parse(favoritos_salvos);
@@ -81,32 +83,38 @@ function MostrarJogos(data) {
     }
 
     console.log(data)
-    let conteudo_jogo_destaque = ` <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
-                                      <video autoplay="true" loop="true" id="video_destaque">
-                                        <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
-                                      </video>
-                                      <div class="destaque_descricao">
-                                          <div class="alinha_botao">
-                                            <p class="jogo_destaque_conteudo">${data[0].title}</p>
-                                            <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
-                                               <button  class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritados" : "" }" type="button" value="${data[0].id}" onclick="favoritos(this)" >FAVORITAR</button>
+
+    let conteudo_jogo_destaque = `  <div class="video_content" >
+                                        <video autoplay="true" loop="true" id="video_destaque">
+                                            <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
+                                        </video>
+                                    </div>
+                                    <div class="destaque_descricao">
+                                        <img id="teste_imagem" src="${data[0].thumbnail}" alt="">
+                                        <div class="conteudo_destaque">
+                                            <div class="alinha_botao">
+                                                <p class="jogo_destaque_conteudo">${data[0].title}</p>
+                                                <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
+                                                    <button class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? " favoritados" : ""}" type="button" value="${data[0].id}" onclick="favoritos(this)"><i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritado" : ""}"></i></ button>
+                                                </div>
                                             </div>
-                                          </div>
-                                          <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
-                                      </div>`
+                                        <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
+                                        </div>
+                                    </div>`
 
     jogo_banner.innerHTML = conteudo_jogo_destaque;
-    //fim do banner de destaque//
+    // fim do banner de destaque
 
 
-    for (i = agora; i < agora + 10; i++) {
 
-        if (data[i] == undefined || data[i] == null){
+    for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
+
+        if (data[i] == undefined || data[i] == null) {
             break;
         }
 
-        let corpo_hover = document.createElement("div");
-        corpo_hover.className = `jogo_hover${i}`
+        // let corpo_hover = document.createElement("div");
+        // corpo_hover.className = `jogo_hover${i}`
 
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
@@ -125,7 +133,7 @@ function MostrarJogos(data) {
                         </div>
                         <div class="div_jogo_conteudo_footer">
                             <p id="title" class="title">${data[i].title}</p>
-                            <button  type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[i].id).toString()) != -1 ? "favoritado" : "" }"></i></button>
+                            <button  type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[i].id).toString()) != -1 ? "favoritado" : ""}"></i></button>
                         </div>`
 
 
@@ -147,8 +155,8 @@ function MostrarJogos(data) {
 }
 
 // filterGames(document.querySelector(".category"));
-// MostrarJogos();
+    MostrarJogos();
 
-// load_more.addEventListener("click", MostrarJogos);
+load_more.addEventListener("click", MostrarJogos);
 
 
