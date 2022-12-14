@@ -44,10 +44,17 @@ async function printarFavoritos() {
     data = await consultAPI();
 
     console.log(ids.length);
-    for (let i = 0; i < ids.length; i++) {
-        let indice = data.findIndex(p => p.id == ids[i]);
-        fav.push(data[indice]);
-    }   
+    
+    data.forEach(jogo=> {
+
+        jogo.id == ids[i] ? fav.push(jogo) : null;
+        
+    });
+
+    // for (let i = 0; i < ids.length; i++) {
+    //     let indice = data.findIndex(p => p.id == ids[i]);
+    //     fav.push(data[indice]);
+    // }   
 
     document.getElementById("home_jogo_destaque").innerHTML = null;
 
