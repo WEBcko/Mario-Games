@@ -6,8 +6,28 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: 'Kdam Thmor Pro', sans-serif;
+  background-color: #151515;
 }
 
+
+/* SCROLL BAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f9f9f9;
+  border-radius: 2px;
+}
+/* FIM SCROLL BAR */
 /* <=============== NAV BAR ===================> */
 
 header {
@@ -203,18 +223,20 @@ main {
   display: flex;
   flex-wrap: wrap;
   background-color: #151515;
+  margin-top: 10vh;
+  margin-left: 14vw;
 }
 
 .home_jogos {
-  width: 86vw;
-  margin-left: 14vw;
   background-color: #151515;
   display: flex;
   text-align: center;
   flex-wrap: wrap;
-  gap: 3vw;
-  padding-left: 30px;
+  width: 100%;
+  margin: 1%;
+  gap: 20px;
   padding-top: 1%;
+  justify-content: space-between;
 }
 
 .jogo {
@@ -257,7 +279,6 @@ main {
 
 .title {
   color: rgb(255, 184, 213);
-  
 }
 
 .div_jogo_conteudo_footer{
@@ -303,10 +324,7 @@ main {
 }
 
 .jogo:hover #video_jogo{
-
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   margin-left: 100px;
 }
 
@@ -324,15 +342,18 @@ main {
   color: yellow;
 }
 
-/* HOVER*/
+.icon_card{
+  width: 20px;
+}
+
+/* FIM HOVER*/
 
 /* ===========botao carregar mais ============= */
 .home_jogos_carregar_mais {
   width: 86vw;
   display: flex;
   height: 8vh;
-  margin-left: 14vw;
-  background-color: #734f96;
+  /* background-color: #734f96; */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -353,24 +374,13 @@ main {
 /* =================jogo destaque ==================== */
 
 .destaque_descricao{
-  /* background-color: #463db9; */
-  /* width: 70%; */
-  /* height: 16vh; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  color: white; */
-  /* display: 	none; */
-  /* grid-column: 2;
-  grid-row: 1;
-  position: relative;
-  top: 16vh; */
   display: flex;
   width: 35%;
   height: 100%;
   flex-direction: column;
   justify-content: center;
   justify-content: space-evenly;
+  color: white;
 }
 
 .conteudo_destaque{
@@ -381,61 +391,35 @@ main {
 
 .home_jogo_destaque {
   display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-left: 14vw;
-    margin-top: 10vh;
-    gap: 20px;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  margin: 1%;
+  background-color: #0d0a0a;
 }
 
 .jogo_destaque_conteudo{
-  /* margin-left:15px; */
   text-align: center;
 }
 
 .div_jogos_destaque_botao_favoritos button{
-  /* width: 100px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   border: none;
-  background: #0066A2;
+  border-radius: 100%;
+  background: #00000047;
   color: white;
   font: bold 12px arial, sans-serif;
   text-shadow: none;
-  cursor: pointer; */
-  width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 100%;
-    background: #00000047;
-    color: white;
-    font: bold 12px arial, sans-serif;
-    text-shadow: none;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 video{
-  /* width: 550px;
-  object-fit: contain;
-  height: auto;
-  grid-column: 1;
-  grid-row: 1/2;
-  justify-self: center;
-  align-self: center;
-  margin-left: 9%; */
   width: 850px;
 }
 
-.home_jogo_destaque #teste_imagem{
-  /* height: 50%;
-  align-self: normal;
-  grid-column: 2;
-  grid-row: 1; */
-  /* justify-self: center; */
-  /* position: relative;
-  margin-top: 5%;
-  margin-left: 12%; */
-  width: 500px;
-}
+
 
 .alinha_botao{
   display: flex;
