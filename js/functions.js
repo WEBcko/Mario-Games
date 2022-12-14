@@ -103,8 +103,8 @@ function MostrarJogos(data) {
                                     </div>`
 
     jogo_banner.innerHTML = conteudo_jogo_destaque;
-    // fim do banner de destaque
 
+    // fim do banner de destaque
 
 
     for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
@@ -146,17 +146,15 @@ function MostrarJogos(data) {
         // }
     }
 
-    // let teste = (data[0]).toString();
-    // console.log(teste)
-    // console.log(favoritos_salvos.indexOf((data[0].id).toString()));
 
     agora += 10;
 
 }
 
-// filterGames(document.querySelector(".category"));
-    MostrarJogos();
 
-load_more.addEventListener("click", MostrarJogos);
+consultAPI().then(data => {
+    MostrarJogos(data);
+});
+
 
 
