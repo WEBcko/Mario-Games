@@ -83,11 +83,11 @@ header .plataforms a {
 }
 
 header .plataforms a:hover {
-  color: #ffffff !important;
+  color: #00fff7;
 }
 
 .selected {
-  color: #ffffff !important;
+  color: #00fff7 !important;
 }
 
 header .fav {
@@ -177,7 +177,7 @@ header .fav:hover{
   text-decoration: none;
   display: flex;
   align-items: center;
-
+  cursor: pointer;
   color: #d81e5b;
   letter-spacing: 2.5px;
 }
