@@ -10,12 +10,16 @@ const options = {
     }
 };
 
+let jogosNow;
 
 // aqui sera mostrado o banner de jogo em destaque//
 const jogo_banner = document.getElementById("home_jogo_destaque");
 
 //aqui sao os jogos que seram mostrados
 let pai_de_todos = document.getElementById("home_jogos");
+
+//botao de carregar mais
+const load_more = document.getElementById("botao_carregar_mais");
 
 // Faz o request e formata para json
 const consultAPI = async (cmp = "") => {
@@ -47,7 +51,7 @@ async function filterGames(cho) {
 
     jogo_banner.innerHTML = null;
     pai_de_todos.innerHTML = null;
-    agora = 1;
+    
 
     let filterS, filterC, filterP;
 
@@ -66,12 +70,11 @@ async function filterGames(cho) {
 
 }
 
-const load_more = document.getElementById("botao_carregar_mais");
-
-let agora = 1;
-
-function MostrarJogos(data) {   
-
+function MostrarJogos(data=jogosNow) {   
+    // data = jogosNow;
+    
+    jogosNow = data;
+    console.log(jogosNow)
     let quant_jogos = document.querySelectorAll(".jogo").length;
 
     favoritos_salvos = localStorage.getItem("favoritos");
@@ -82,7 +85,7 @@ function MostrarJogos(data) {
         favoritos_salvos = localStorage.getItem("favoritos");
     }
 
-    console.log(data)
+    // console.log(data)
 
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
@@ -136,25 +139,23 @@ function MostrarJogos(data) {
                             <button  type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[i].id).toString()) != -1 ? "favoritado" : ""}"></i></button>
                         </div>`
 
-
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
 
-
-        // if (favoritos_salvos.indexOf((data[0].id).toString()) == 0){
-
-        // }
     }
-
-
-    agora += 10;
 
 }
 
-
 consultAPI().then(data => {
+    
     MostrarJogos(data);
+    
 });
+
+
+
+load_more.addEventListener("click", MostrarJogos);
+
 
 
 
