@@ -42,6 +42,7 @@ async function printarFavoritos() {
     let fav = [];
 
     data = await consultAPI();
+
     console.log(ids.length);
     
     data.forEach(jogo=> {
