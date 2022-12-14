@@ -42,6 +42,7 @@ async function printarFavoritos() {
     let fav = [];
 
     data = await consultAPI();
+
     console.log(ids.length);
     for (let i = 0; i < ids.length; i++) {
         let indice = data.findIndex(p => p.id == ids[i]);

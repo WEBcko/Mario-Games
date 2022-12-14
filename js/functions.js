@@ -89,7 +89,7 @@ function MostrarJogos(data = jogosNow) {
                                         </video>
                                     </div>
                                     <div class="destaque_descricao">
-                                        <img id="teste_imagem" src="${data[0].thumbnail}" alt="">
+                                        <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
                                         <div class="conteudo_destaque">
                                             <div class="alinha_botao">
                                                 <p class="jogo_destaque_conteudo">${data[0].title}</p>
