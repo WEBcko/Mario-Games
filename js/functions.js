@@ -70,7 +70,9 @@ const load_more = document.getElementById("botao_carregar_mais");
 
 let agora = 1;
 
-function MostrarJogos(data) {
+function MostrarJogos(data) {   
+
+    let quant_jogos = document.querySelectorAll(".jogo").length;
 
     favoritos_salvos = localStorage.getItem("favoritos");
     favoritos_salvos = JSON.parse(favoritos_salvos);
@@ -104,14 +106,15 @@ function MostrarJogos(data) {
     // fim do banner de destaque
 
 
-    for (i = agora; i < agora + 10; i++) {
+
+    for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
 
         if (data[i] == undefined || data[i] == null) {
             break;
         }
 
-        let corpo_hover = document.createElement("div");
-        corpo_hover.className = `jogo_hover${i}`
+        // let corpo_hover = document.createElement("div");
+        // corpo_hover.className = `jogo_hover${i}`
 
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
@@ -152,8 +155,8 @@ function MostrarJogos(data) {
 }
 
 // filterGames(document.querySelector(".category"));
-    MostrarJogos(bruh);
+    MostrarJogos();
 
-    load_more.addEventListener("click", MostrarJogos);
+load_more.addEventListener("click", MostrarJogos);
 
 
