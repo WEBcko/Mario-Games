@@ -77,7 +77,9 @@ function MostrarJogos(data = jogosNow) {
                                     </div>
                                     <div class="destaque_descricao">
                                         <div class="destaque_imagem"> 
+                                        <a  href="${data[0].game_url}" target="_blank"> 
                                             <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        </a>
                                         </div>
                                         <div class="conteudo_destaque">
                                             <div class="alinha_botao">
@@ -107,7 +109,7 @@ function MostrarJogos(data = jogosNow) {
         corpo.setAttribute("onmouseout", "this.querySelector('#video_jogo').pause();this.querySelector('#video_jogo').currentTime=0;");
 
         let conteudo = `<div class="container_jogo_imagem">
-                            <a href="${data[i].game_url}" class="jogo_conteudo">
+                            <a href="${data[i].game_url}"  target="_blank" class="jogo_conteudo">
                                 <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
                                 <video loop="true" id="video_jogo">
                                     <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">

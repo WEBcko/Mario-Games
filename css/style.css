@@ -605,7 +605,7 @@ main {
   }
 
   .short_description {
-    /* display: none; */
+    display: none;
     font-size: 10px;
     width: 180px;
     overflow-wrap: break-word;
@@ -699,6 +699,11 @@ main {
 }
 
 @media screen and (max-width:800px) {
+
+  .short_description{
+    display: none;
+  }
+
   header .fav {
     width: 12%;
     display: flex;
@@ -842,6 +847,10 @@ main {
     font-size: 1.0em;
     display: flex;
     flex-direction: row;
+  }
+
+  .short_description{
+    display: none;
   }
 
   /* pra tirar o icone */
