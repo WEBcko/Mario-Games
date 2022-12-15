@@ -81,7 +81,7 @@ function MostrarJogos(data = jogosNow) {
                                         </div>
                                         <div class="conteudo_destaque">
                                             <div class="alinha_botao">
-                                                <p class="jogo_destaque_conteudo">${data[0].title}</p>
+                                                <p class="jogo_destaque_conteudo_title">${data[0].title}</p>
                                                 <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
                                                     <button class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? " favoritados" : ""}" type="button" value="${data[0].id}" onclick="favoritos(this)"><i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritado" : ""}"></i></ button>
                                                 </div>
