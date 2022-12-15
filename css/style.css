@@ -836,6 +836,18 @@ main {
 
 }
 
+/* FAVORITOS */
+
+#nofav{
+  color: #ffffff;
+  height: 200px;
+  font-size: 2rem;
+  margin: auto;
+  margin-top: 20%;
+  background: rgb(21 21 21);
+  display: block;
+}
+
 @media screen and (max-width:800px) {
 
   .short_description{
@@ -1006,5 +1018,4 @@ main {
 
 /* PUCMAN */
 }
-
 
