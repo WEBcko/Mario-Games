@@ -70,6 +70,11 @@ function MostrarJogos(data = jogosNow) {
 
     favoritos_salvos = getFavoritos();
 
+    if(data <= 0){
+        pai_de_todos.innerHTML = "<h1 id='nofav'>Nada aqui por enquanto...</h1>";
+        return;
+    }
+
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
                                             <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
@@ -95,6 +100,8 @@ function MostrarJogos(data = jogosNow) {
     jogo_banner.innerHTML = conteudo_jogo_destaque;
 
     // fim do banner de destaque
+
+    pai_de_todos.innerHTML = "<section class='wrapper'> <div id='stars'></div><div id='stars2'></div><div id='stars3'></div></section>"
 
     for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
 
