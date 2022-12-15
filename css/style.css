@@ -275,7 +275,6 @@ header .fav:hover{
 } 
 
  .jogo::after {
-
   content: '';
   position: absolute;
   width: 35px;
@@ -290,10 +289,8 @@ header .fav:hover{
 } 
 
  .jogo #video_jogo {
-
   display: none; 
   width: 73%;
-  display: flex;
   position: absolute; 
   top: 3%;
 } 
@@ -452,7 +449,7 @@ header .fav:hover{
   align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 90px;
+  height: 100%;
   justify-content: space-around;
   align-items: center; 
 }
@@ -535,7 +532,7 @@ header .fav:hover{
 
 .jogo:hover .div_jogo_conteudo_footer {
 
-  background-color: #0066A2; 
+  background-color: transparent; 
   margin-top: 50%;
   margin-bottom: 10px;
 
