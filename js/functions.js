@@ -21,7 +21,7 @@ let pai_de_todos = document.getElementById("home_jogos");
 // Faz o request e formata para json
 const consultAPI = async (cmp = "") => {
     try {
-        const response = await fetch(url + cmp, options);
+        const response = await fetch(url + '?sort-by=popularity' + cmp, options);
         return await response.json();
     } catch (error) {
         console.log(error);
@@ -30,35 +30,26 @@ const consultAPI = async (cmp = "") => {
 
 async function filterGames(cho) {
 
-    let plataform = cho.dataset.plataform;
-    let category = cho.dataset.category;
-
     cho.parentElement.querySelector(".selected").classList.remove('selected');
-
     cho.classList.add("selected");
 
-    if (cho.dataset.category == undefined) {
-        category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
-    }
+    let category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
 
-    if (cho.dataset.plataform == undefined) {
-        plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
-    }
-
+    let plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
+ 
     jogo_banner.innerHTML = null;
     pai_de_todos.innerHTML = null;
     
+    let filterC, filterP;
 
-    let filterS, filterC, filterP;
-
-    filterC = `category=${category}`;
-    filterP = `plataform=${plataform}`;
+    filterC = `&category=${category}`;
+    filterP = `&plataform=${plataform}`;
 
     if (category === "home") {
         filterC = null;
     }
 
-    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") + '&sort-by=popularity';
+    let cmp = filterP + (filterC ? `${filterC}` : "");
 
     console.log(cmp);
     MostrarJogos(await consultAPI(cmp));
@@ -68,7 +59,7 @@ async function filterGames(cho) {
 function MostrarJogos(data = jogosNow) {   
     
     jogosNow = data;
-    console.log(jogosNow)
+    
     let quant_jogos = document.querySelectorAll(".jogo").length;
 
     favoritos_salvos = localStorage.getItem("favoritos");
@@ -78,8 +69,6 @@ function MostrarJogos(data = jogosNow) {
         localStorage.setItem("favoritos", JSON.stringify([]));
         favoritos_salvos = localStorage.getItem("favoritos");
     }
-
-    // console.log(data)
 
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
@@ -103,15 +92,11 @@ function MostrarJogos(data = jogosNow) {
 
     // fim do banner de destaque
 
-
     for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
 
         if (data[i] == undefined || data[i] == null) {
             break;
         }
-
-        // let corpo_hover = document.createElement("div");
-        // corpo_hover.className = `jogo_hover${i}`
 
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
