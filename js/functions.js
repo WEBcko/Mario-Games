@@ -70,6 +70,11 @@ function MostrarJogos(data = jogosNow) {
 
     favoritos_salvos = getFavoritos();
 
+    if(data <= 0){
+        pai_de_todos.innerHTML = "<h1 id='nofav'>Nada aqui por enquanto...</h1>";
+        return;
+    }
+
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
                                             <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
