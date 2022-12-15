@@ -39,10 +39,10 @@ async function filterGames(cho) {
     let category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
 
     let plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
- 
+
     jogo_banner.innerHTML = null;
     pai_de_todos.innerHTML = null;
-    
+
     let filterC, filterP;
 
     filterC = `&category=${category}`;
@@ -59,18 +59,18 @@ async function filterGames(cho) {
 
 }
 
-function MostrarJogos(data = jogosNow) {   
-    
+function MostrarJogos(data = jogosNow) {
+
     // REMOVE LOADING
     pucman.style.display = 'none';
 
     jogosNow = data;
-    
+
     let quant_jogos = document.querySelectorAll(".jogo").length;
 
     favoritos_salvos = getFavoritos();
 
-    if(data <= 0){
+    if (data <= 0) {
         pai_de_todos.innerHTML = "<h1 id='nofav'>Nada aqui por enquanto...</h1>";
         return;
     }
@@ -101,7 +101,7 @@ function MostrarJogos(data = jogosNow) {
 
     // fim do banner de destaque
 
-    pai_de_todos.innerHTML = "<section class='wrapper'> <div id='stars'></div><div id='stars2'></div><div id='stars3'></div></section>"
+    
 
     for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
 
@@ -138,7 +138,7 @@ function MostrarJogos(data = jogosNow) {
 
 }
 
-function hoverVideo(div_jogo){
+function hoverVideo(div_jogo) {
     const video = div_jogo.querySelector('#video_jogo'); // Pega o video 
 
     let rodando = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > video.HAVE_CURRENT_DATA; // Verifica se ele ta rodando
@@ -149,16 +149,16 @@ function hoverVideo(div_jogo){
     }
 
     // SE O VIDEO ESTIVER RODANDO RESETA E PAUSA
-    video.currentTime=0; 
+    video.currentTime = 0;
     video.pause();
 }
 
 
 // EXIBE OS JOGOS POR POPUALRIDADE NA HOME
 consultAPI().then(data => {
-    
+
     MostrarJogos(data);
-    
+
 });
 
 // CARREGA MAIS JOGOS NO SCROOL
