@@ -377,8 +377,10 @@ main {
   color: #ffffff;
   display: flex;
   top: 60%;
-  right: 20px;
-  left: 20px;
+  /* right: 20px;
+  left: 20px; */
+  left: 50%;
+  margin-left: -43%;
   position: absolute;
   /* padding-bottom: 30px; */
   font-size: 14px;
