@@ -83,11 +83,16 @@ header .plataforms a {
 }
 
 header .plataforms a:hover {
-  color: #00fff7;
+  color: #ffffff;
 }
 
+header .plataforms a:hover{
+
+  background-color: #ad194a75;
+} 
+
 .selected {
-  color: #00fff7 !important;
+  color: #fff !important;
 }
 
 header .fav {
@@ -110,7 +115,7 @@ header .fav i {
 
 
 header .fav:hover{
-  background-color: #27CAD4;
+  background-color: #ad194a75;
   transition: 0.3s;
 }
 
@@ -258,6 +263,8 @@ main {
   justify-content: space-around;
 
   position: relative;
+
+  box-shadow: 1px 1px 9px #d81e5c63;
 }
 .jogo::before{
 
@@ -360,6 +367,7 @@ main {
   background-image:linear-gradient(#0b0b0b, #ff5d784b);
   background-color: none  ;
   transition: 500ms;
+  box-shadow: none;
 }
 
 .jogo:hover::before{
