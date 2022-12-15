@@ -27,10 +27,11 @@ body {
   background: #f9f9f9;
   border-radius: 2px;
 }
-/* FIM SCROLL BAR */
+
+/* FIM SCROLL BAR
 /* <=============== NAV BAR ===================> */
 
-header {
+ header {
   width: 100vw;
   height: 10vh;
   gap: 15vw;
@@ -44,7 +45,7 @@ header {
   position: fixed;
   z-index: 200;
   box-shadow: 1px 2px 3px 3px #0000002e;
-}
+} 
 
 header .logo {
   width: 22%;
@@ -109,7 +110,7 @@ header .fav i {
 
 
 
-header .fav:hover{
+header .fav:hover {
   background-color: #27CAD4;
   transition: 0.3s;
 }
@@ -131,7 +132,7 @@ header .fav:hover{
 
   display: flex;
   justify-content: center;
-}
+} */
 
 .container_side_bar {
   display: flex;
@@ -152,15 +153,15 @@ header .fav:hover{
   color: #27CAD4;
 }
 
-/* .home_side_bar .container_side_bar .category {
+.home_side_bar .container_side_bar .category {
   width: 100%;
   height: 60px;
   margin-top: 20%;
   color: white;
   text-decoration: none;
-} */
+}
 
-.categorys{
+ .categorys {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -168,18 +169,18 @@ header .fav:hover{
   margin-top: 10%;
 }
 
-.category{
+.category {
   width: 100%;
   height: 60px;
-  /* margin-top: 20%; */
+  margin-top: 20%; */
   color: white;
   text-decoration: none;
   display: flex;
-  align-items: center;
+  align-items: center; */
   cursor: pointer;
   color: #d81e5b;
   letter-spacing: 2.5px;
-}
+ } 
 
 .category svg {
   color: #FFFFFF;
@@ -189,21 +190,20 @@ header .fav:hover{
   width: 100%;
   margin-left: 20%;
   vertical-align: middle;
-
-}
-.category_title {
   vertical-align: top;
   margin-right: 2%;
 }
 
-.home_side_bar_options{
+.category_title {}
+
+.home_side_bar_options {
   height: 75vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 
-  /* justify-content: center;
-  align-items: center;   */
+  justify-content: center;
+  align-items: center;  
 }
 
 /* <=============== SIDE MENU-ANIMAÇOES ===================> */
@@ -218,7 +218,7 @@ header .fav:hover{
 
 
 /* ===================== MAIN ==================== */
-main {
+ main {
   display: flex;
   flex-wrap: wrap;
   background-color: #151515;
@@ -236,31 +236,30 @@ main {
   gap: 20px;
   padding-top: 1%;
   justify-content: space-around;
-}
+} 
 
-.jogo {
+ .jogo {
   display: block;
   width: 30%;
   padding-top: 10px;
   display: flex;
   gap: 10px;
-  
-
-  background-color:#0f0f0f;
+  background-color: #0f0f0f; */
   /* background-color: #1c1c1c; */
-  background-color: none;
+  /* background-color: none; */
   /* background-image:linear-gradient(#0b0b0b, #ff5d784b); */
-  border-radius: 2%;
+   border-radius: 2%;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   transition: 500ms;
   justify-content: space-around;
-
   position: relative;
-}
-.jogo::before{
+} 
 
+
+
+ .jogo::before {
   content: '';
   position: absolute;
   width: 35px;
@@ -272,9 +271,9 @@ main {
   top: 0;
   right: 0;
   border-radius: 5px;
-}
+} 
 
-.jogo::after{
+ .jogo::after {
 
   content: '';
   position: absolute;
@@ -287,22 +286,22 @@ main {
   bottom: 0;
   left: 0;
   border-radius: 5px;
-}
+} 
 
-.jogo #video_jogo{
+ .jogo #video_jogo {
 
-  display: none;
+  display: none; */
   width: 73%;
-  /* display: flex; */
-  position: absolute;
-  top: 3%; 
-}
+  display: flex;
+  position: absolute; 
+  top: 3%;
+} 
 
-.jogo_conteudo{
+ .jogo_conteudo {
   text-decoration: none;
   display: flex;
   justify-content: center;
-}
+} 
 
 .short_description {
   display: none;
@@ -323,167 +322,16 @@ main {
   font-family: 'Titillium Web', sans-serif;
 }
 
-.div_jogo_conteudo_footer{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 90px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.div_jogo_conteudo_footer button{
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 100%;
-    background: #00000047;
-    color: white;
-    font: bold 12px arial, sans-serif;
-    text-shadow: none;
-    cursor: pointer;
-}
-
-.fa-star{
-  font-size: 20px;
-  transition: 500ms;
-  color:white;
-}
-
-/* HOVER */
-.jogo:hover{
-  /* -webkit-transform: scale(1.1); */
-  /* -ms-transform: scale(1.1); */
-  transform: scale(1.1);
-  z-index: 100;
-  /* background-color: #1c1c1c; */
-  background-image:linear-gradient(#0b0b0b, #ff5d784b);
-  background-color: none  ;
-  transition: 500ms;
-}
-
-.jogo:hover::before{
-  transition: 500ms;
-  width: 60px;
-  height: 60px;
-}
-
-.jogo:hover::after{
-  transition: 500ms;
-  width: 60px;
-  height: 60px;
-  /* border-bottom: 5px solid #d81e5b;
-  border-right: 5px solid #d81e5b;
-  border-left: none;
-  right: 0;
-  left: unset; */
-}
-
-.jogo:hover .imagem_jogo{
-
-  display: none;
-}
-
-.jogo:hover #video_jogo{
+ .div_jogo_conteudo_footer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.jogo:hover .title{
-  color: #ffffff;
-  font-size: 20px;
-
-}
-
-.jogo:hover .short_description{
-  color: #ffffff;
-  display: flex;
-  top: 55%;
-  right: 20px;
-  left: 20px;
-  position: absolute;
-  /* padding-bottom: 30px; */
-  font-size: 14px;
-}
-
-.jogo:hover .div_jogo_conteudo_footer{
- 
-  /* background-color: #0066A2; */
-  margin-top: 50%;   
-  /* margin-bottom: 10px; */
-  
-}
-
-.favoritado{
-  transition: 500ms;
-  color: yellow;
-}
-
-.icon_card{
-  width: 20px;
-}
-
-/* FIM HOVER*/
-
-/* ===========botao carregar mais ============= */
-.home_jogos_carregar_mais {
-  width: 86vw;
-  display: flex;
-  height: 8vh;
-  /* background-color: #734f96; */
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.home_jogos_carregar_mais .botao_carregar_mais {
-  border:none;
-  background: #0066A2;
-  color: white;
-  height: 30px;
-  width: 100px;
-  font: bold 12px arial, sans-serif;
-  text-shadow: none;
-}
-
-/* ===========botao carregar mais FIM ============= */
-
-/* =================jogo destaque ==================== */
-
-.destaque_descricao{
-  display: flex;
-  width: 35%;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-evenly;
-  color: white;
-}
-
-.conteudo_destaque{
-  display: flex;
-  flex-direction: column;
-}
-
-
-.home_jogo_destaque {
-  display: flex;
-  align-items: center;
   flex-direction: row;
-  gap: 20px;
   width: 100%;
-  margin: 1%;
-  background-color: #0d0a0a;
+  height: 90px;
+  justify-content: space-around;
+  align-items: center; 
 }
 
-.jogo_destaque_conteudo{
-  text-align: center;
-}
-
-.div_jogos_destaque_botao_favoritos button{
+.div_jogo_conteudo_footer button {
   width: 50px;
   height: 50px;
   border: none;
@@ -495,16 +343,180 @@ main {
   cursor: pointer;
 }
 
-video{
-  width: 850px;
+.fa-star {
+  font-size: 20px;
+  transition: 500ms;
+  color: white;
 }
 
+/* HOVER */
+.jogo:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  z-index: 100;
+  background-color: #1c1c1c;
+  background-image: linear-gradient(#0b0b0b, #ff5d784b); */
+  background-color: none;
+  transition: 500ms;
+} 
 
+.jogo:hover::before {
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+}
 
-.alinha_botao{
+.jogo:hover::after {
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+  border-bottom: 5px solid #d81e5b;
+  border-right: 5px solid #d81e5b;
+  border-left: none;
+  right: 0;
+  left: unset;
+}
+
+.jogo:hover .imagem_jogo {
+  display: none;
+}
+
+.jogo:hover #video_jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.jogo:hover .title {
+  color: #ffffff;
+  font-size: 20px;
+
+}
+
+.jogo:hover .short_description {
+  color: #ffffff;
+  display: flex;
+  top: 55%;
+  right: 20px;
+  left: 20px;
+  position: absolute;
+  padding-bottom: 30px;
+  font-size: 14px;
+}
+
+.jogo:hover .div_jogo_conteudo_footer {
+
+  background-color: #0066A2; 
+  margin-top: 50%;
+  margin-bottom: 10px;
+
+}
+
+.favoritado {
+  transition: 500ms;
+  color: yellow;
+}
+
+ .icon_card {
+  width: 20px;
+} 
+
+/* FIM HOVER*/
+
+/* ===========botao carregar mais ============= */
+.home_jogos_carregar_mais {
+  width: 86vw;
+  display: flex;
+  height: 8vh;
+  background-color: #734f96;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home_jogos_carregar_mais .botao_carregar_mais {
+  border: none;
+  background: #0066A2;
+  color: white;
+  height: 35px;
+  width: 150px;
+  font: bold 12px arial, sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+/* ===========botao carregar mais FIM ============= */
+
+/* =================jogo destaque ==================== */
+
+.destaque_descricao {
+  display: flex;
+  width: 35%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.video_content {
+  width: 100%;
+}
+
+.video_content video {
+  width: 100%; 
+}
+
+.destaque_descricao .destaque_imagem {
+  width: 100%;
+}
+
+.destaque_descricao .destaque_imagem img {
+  width: 100%;
+}
+
+.conteudo_destaque {
+  display: flex;
+  flex-direction: column;
+}
+
+.home_jogo_destaque {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  margin: 1%;
+  background-color: #0d0a0a;
+}
+
+.jogo_destaque_conteudo {
+  text-align: center;
+}
+
+.div_jogos_destaque_botao_favoritos button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 100%;
+  background: #00000047;
+  color: white;
+  font: bold 12px arial, sans-serif;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+.alinha_botao {
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
+} 
 
 /* ==========jogo destaque FIM ==================== */
+
+
+

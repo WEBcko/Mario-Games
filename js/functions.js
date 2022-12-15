@@ -89,7 +89,9 @@ function MostrarJogos(data = jogosNow) {
                                         </video>
                                     </div>
                                     <div class="destaque_descricao">
-                                        <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        <div class="destaque_imagem"> 
+                                            <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        </div>
                                         <div class="conteudo_destaque">
                                             <div class="alinha_botao">
                                                 <p class="jogo_destaque_conteudo">${data[0].title}</p>
@@ -121,14 +123,14 @@ function MostrarJogos(data = jogosNow) {
         corpo.setAttribute("onmouseover", "this.querySelector('#video_jogo').play()");
         corpo.setAttribute("onmouseout", "this.querySelector('#video_jogo').pause();this.querySelector('#video_jogo').currentTime=0;");
 
-        let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
-                            <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
-                            
-                            <video loop="true" id="video_jogo">
-                                        <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
-                            </video>
-                        
-                        </a> 
+        let conteudo = `<div class="container_jogo_imagem">
+                            <a href="${data[i].game_url}" class="jogo_conteudo">
+                                <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
+                                <video loop="true" id="video_jogo">
+                                    <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
+                                </video>
+                            </a> 
+                        </div>
                         <div> 
                             <p id="short_description" class="short_description">${data[i].short_description}</p> 
                         </div>
@@ -150,4 +152,6 @@ consultAPI().then(data => {
     MostrarJogos(data);
     
 });
+
+
 
