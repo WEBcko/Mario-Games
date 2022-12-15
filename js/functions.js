@@ -96,6 +96,8 @@ function MostrarJogos(data = jogosNow) {
 
     // fim do banner de destaque
 
+    pai_de_todos.innerHTML = "<section class='wrapper'> <div id='stars'></div><div id='stars2'></div><div id='stars3'></div></section>"
+
     for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
 
         if (data[i] == undefined || data[i] == null) {
