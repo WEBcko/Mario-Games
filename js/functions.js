@@ -1,8 +1,5 @@
-
 // Url da API
-const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=popularity'
-
-const load_more = document.getElementById("botao_carregar_mais");
+const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games';
 
 // Parametros para consulta na API, metodo e header
 const options = {
@@ -13,97 +10,161 @@ const options = {
     }
 };
 
-async function consultar_API() {
+let jogosNow;
+
+// DIV DE JOGO EM DESTAQUE
+const jogo_banner = document.getElementById("home_jogo_destaque");
+
+// DIV DE LISTA JOGOS
+let pai_de_todos = document.getElementById("home_jogos");
+
+// DIV COM LOADING PUCMAN
+const pucman = document.querySelector('.loading-pucman');
+
+// Faz o request e formata para json
+const consultAPI = async (cmp = "") => {
     try {
-
-        const response = await fetch(url, options);
-        let data = await response.json();
-
-        return data;
-    }
-    catch (err) {
-        console.log(err);
+        const response = await fetch(url + '?sort-by=popularity' + cmp, options);
+        return await response.json();
+    } catch (error) {
+        console.log(error);
     }
 }
 
-async function filtrar(category = null, plataform = 'all', sorted = 'popularity'){
+async function filterGames(cho) {
 
-    let link = url + '?sort-by' + sorted;
+    cho.parentElement.querySelector(".selected").classList.remove('selected');
+    cho.classList.add("selected");
 
-    if (category) {
-        link += "&category=" + category;
+    let category = document.querySelector(".categorys").querySelector(".selected").dataset.category;
+
+    let plataform = document.querySelector(".plataforms").querySelector(".selected").dataset.plataform;
+ 
+    jogo_banner.innerHTML = null;
+    pai_de_todos.innerHTML = null;
+    
+    let filterC, filterP;
+
+    filterC = `&category=${category}`;
+    filterP = `&plataform=${plataform}`;
+
+    if (category === "home") {
+        filterC = null;
     }
 
-    if (plataform) {
-        link += "&plataform=" + plataform;
-    }
+    let cmp = filterP + (filterC ? `${filterC}` : "");
 
-    console.log(link);
+    pucman.style.display = 'block';
+    MostrarJogos(await consultAPI(cmp));
 
 }
 
-filtrar();
+function MostrarJogos(data = jogosNow) {   
+    
+    // REMOVE LOADING
+    pucman.style.display = 'none';
 
-let agora = 1;
+    jogosNow = data;
+    
+    let quant_jogos = document.querySelectorAll(".jogo").length;
 
-const botoes_categoria = document.querySelectorAll(".games");
-botoes_categoria.forEach(el => el.addEventListener('click', MostrarJogos));
+    favoritos_salvos = getFavoritos();
 
-async function MostrarJogos(el) {
+    if(data <= 0){
+        pai_de_todos.innerHTML = "<h1 id='nofav'>Nada aqui por enquanto...</h1>";
+        return;
+    }
 
-    let data = await consultar_API();
-    console.log(el);
-
-    // aqui sera mostrado o banner de jogo em destaque//
-    const jogo_banner = document.getElementById("home_jogo_destaque");
-
-    let conteudo_jogo_destaque = `<img id="teste_imagem" src="${data[0].thumbnail}" alt="">
-                                      <video autoplay="true" loop="true" id="video_destaque">
-                                        <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
-                                      </video>
-                                      <div class="div_jogo_destaque_descricao">
-                                          <div class="alinha_botao">
-                                            <p class="jogo_destaque_conteudo">${data[0].title}</p>
-                                            <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
-                                               <button type="button" value="${data[0].id}" onclick="favoritos(this)" >FAVORITAR</button>
+    let conteudo_jogo_destaque = `  <div class="video_content" >
+                                        <video autoplay="true" loop="true" id="video_destaque">
+                                            <source src="https://www.freetogame.com/g/${data[0].id}/videoplayback.webm" type="video/webm">
+                                        </video>
+                                    </div>
+                                    <div class="destaque_descricao">
+                                        <div class="destaque_imagem"> 
+                                        <a  href="${data[0].game_url}" target="_blank"> 
+                                            <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        </a>
+                                        </div>
+                                        <div class="conteudo_destaque">
+                                            <div class="alinha_botao">
+                                                <p class="jogo_destaque_conteudo_title">${data[0].title}</p>
+                                                <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
+                                                    <button class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? " favoritados" : ""}" type="button" value="${data[0].id}" onclick="favoritos(this)"><i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritado" : ""}"></i></ button>
+                                                </div>
                                             </div>
-                                          </div>
-                                          <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
-                                      </div>`
-
+                                        <p class="jogo_destaque_conteudo">${data[0].short_description}</p>
+                                        </div>
+                                    </div>`
 
     jogo_banner.innerHTML = conteudo_jogo_destaque;
-    //fim do banner de destaque//
 
-    let pai_de_todos = document.getElementById("home_jogos");
+    // fim do banner de destaque
 
-    for (i = agora; i < agora + 10; i++) {
+    pai_de_todos.innerHTML = "<section class='wrapper'> <div id='stars'></div><div id='stars2'></div><div id='stars3'></div></section>"
+
+    for (i = quant_jogos + 1; i < quant_jogos + 10; i++) {
+
+        if (data[i] == undefined || data[i] == null) {
+            break;
+        }
+
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = `jogo`
+        corpo.setAttribute("onmouseover", "hoverVideo(this)");
+        corpo.setAttribute("onmouseout", "hoverVideo(this)");
 
-        let conteudo = `<div>
-                        <a href="#user" class="jogo_conteudo">
-                        <img src="${data[i].thumbnail}" alt="" id="thumbnail">
-                        </a> 
-                        <div class="div_jogo_conteudo_footer"><p id="title" class="title">${data[i].title}</p>
-                        
-                        <button type="button"  value="${data[i].id}" onclick="favoritos(this)" >FAVORITAR</button></div>
+        let conteudo = `<div class="container_jogo_imagem">
+                            <a href="${data[i].game_url}" target="_blank" class="jogo_conteudo">
+                                <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
+                                <video loop="true" muted="muted" id="video_jogo">
+                                    <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
+                                </video>
+                            </a> 
                         </div>
-                        `
+                        <div> 
+                            <p id="short_description" class="short_description">${data[i].short_description}</p> 
+                        </div>
+                        <div class="div_jogo_conteudo_footer">
+                            <p id="title" class="title">${data[i].title}</p>
+                            <button  type="button"  value="${data[i].id}" onclick="favoritos(this)"> <i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[i].id).toString()) != -1 ? "favoritado" : ""}"></i></button>
+                        </div>`
 
         corpo.innerHTML += conteudo;
         pai_de_todos.appendChild(corpo);
 
-        // <p id="short_description" class="short_description">${data[i].short_description}</p>
-
     }
-
-    agora += 10;
 
 }
 
+function hoverVideo(div_jogo){
+    const video = div_jogo.querySelector('#video_jogo'); // Pega o video 
 
-MostrarJogos();
+    let rodando = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > video.HAVE_CURRENT_DATA; // Verifica se ele ta rodando
 
-load_more.addEventListener("click", MostrarJogos);
+    if (!rodando) { // SENÃO ESTIVER RODANDO DA PLAY
+        video.play();
+        return;
+    }
+
+    // SE O VIDEO ESTIVER RODANDO RESETA E PAUSA
+    video.currentTime=0; 
+    video.pause();
+}
+
+
+// EXIBE OS JOGOS POR POPUALRIDADE NA HOME
+consultAPI().then(data => {
+    
+    MostrarJogos(data);
+    
+});
+
+// CARREGA MAIS JOGOS NO SCROOL
+window.onscroll = function (e) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight + 70) { // VERIFICA SE THUMB DO SCROLL CHEGOU NO FIM
+        pucman.style.display = 'block';
+        MostrarJogos();
+    }
+};
