@@ -33,8 +33,7 @@ async function filterGames(cho) {
     let plataform = cho.dataset.plataform;
     let category = cho.dataset.category;
 
-    choDad = cho.parentElement;
-    choDad.querySelector(".selected").classList.remove('selected');
+    cho.parentElement.querySelector(".selected").classList.remove('selected');
 
     cho.classList.add("selected");
 
@@ -54,13 +53,12 @@ async function filterGames(cho) {
 
     filterC = `category=${category}`;
     filterP = `plataform=${plataform}`;
-    filterS = 'sort-by=popularity'
 
     if (category === "home") {
         filterC = null;
     }
 
-    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") + `&${filterS}`;
+    let cmp = "?" + filterP + (filterC ? `&${filterC}` : "") + '&sort-by=popularity';
 
     console.log(cmp);
     MostrarJogos(await consultAPI(cmp));
