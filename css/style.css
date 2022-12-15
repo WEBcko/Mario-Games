@@ -338,7 +338,7 @@ main {
 
 .short_description {
   display: none;
-  width: 390px;
+  width: 350px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
@@ -436,15 +436,9 @@ main {
   display: flex;
   top: 55%;
   right: 20px;
-  left: 20px;
+  left: 10px;
   position: absolute;
-  /* padding-bottom: 30px; */
-  font-size: 14px;
-  white-space: nowrap;
-    width: 12em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-   
+  font-size: 12px;
 }
 
 .jogo:hover .div_jogo_conteudo_footer{
