@@ -271,7 +271,6 @@ main {
 
   display: none;
   width: 90%;
-  /* display: flex; */
   
 }
 
@@ -377,7 +376,7 @@ main {
 .jogo:hover .short_description{
   color: #ffffff;
   display: flex;
-  top: 55%;
+  top: 60%;
   right: 20px;
   left: 20px;
   position: absolute;
