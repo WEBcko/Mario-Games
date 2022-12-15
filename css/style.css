@@ -504,3 +504,18 @@ video{
   animation-play-state: running;
   animation-delay: 0s;
 }
+/* FAVORITOS */
+
+#nofav{
+  color: #ffffff;
+  height: 200px;
+  font-size: 2rem;
+  margin: auto;
+  margin-top: 20%;
+  background: rgb(21 21 21);
+  display: block;
+}
+
+.hide{
+  display: none;
+}
