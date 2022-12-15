@@ -1,16 +1,6 @@
 function favoritos(a) {
-    //pega o item "favoritos" no LocalStorage
-    let favoritos_salvos = localStorage.getItem("favoritos");
-
-    if (favoritos_salvos == undefined){
-        localStorage.setItem("favoritos", JSON.stringify([]));
-
-        favoritos_salvos = localStorage.getItem("favoritos");
-    }
-
-    //transforma o JSON em Array para ser utilizado
-    let dale = JSON.parse(favoritos_salvos);
-
+   
+    let dale = getFavoritos();
     let index = dale.indexOf(a.value);
 
     index != -1 ? dale.splice(index, 1) : dale.push(a.value);
@@ -29,6 +19,22 @@ function favoritos(a) {
     }
 }   
 
+// RETORNA OS FAVORITOS EM ARRAY, CASO O CAMPO NÃO EXISTA ELE É CRIADO COM ARRAY VAZIO
+function getFavoritos (){
+    //pega o item "favoritos" no LocalStorage
+    let favoritos_salvos = localStorage.getItem("favoritos");
+
+    if (favoritos_salvos == undefined){
+        localStorage.setItem("favoritos", JSON.stringify([]));
+
+        favoritos_salvos = localStorage.getItem("favoritos");
+    }
+
+    //transforma o JSON em Array para ser utilizado
+    let dale = JSON.parse(favoritos_salvos);
+
+    return dale;
+}
 
 async function printarFavoritos() {
     
