@@ -107,10 +107,10 @@ header .plataforms a:hover {
   color: #ffffff;
 }
 
-header .plataforms a:hover{
+header .plataforms a:hover {
 
   background-color: #ad194a75;
-} 
+}
 
 .selected {
   color: #27CAD4 !important;
@@ -323,10 +323,10 @@ main {
   border-radius: 5px;
 }
 
- .jogo #video_jogo {
-  display: none; 
+.jogo #video_jogo {
+  display: none;
   width: 73%;
-  position: absolute; 
+  position: absolute;
   top: 3%;
 }
 
@@ -355,53 +355,53 @@ main {
   font-family: 'Titillium Web', sans-serif;
 }
 
-.div_jogo_conteudo_footer{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 90px;
-    justify-content: space-around;
-    align-items: center;
+.div_jogo_conteudo_footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90px;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.div_jogo_conteudo_footer button{
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 100%;
-    background: #00000047;
-    color: white;
-    font: bold 12px arial, sans-serif;
-    text-shadow: none;
-    cursor: pointer;
+.div_jogo_conteudo_footer button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 100%;
+  background: #00000047;
+  color: white;
+  font: bold 12px arial, sans-serif;
+  text-shadow: none;
+  cursor: pointer;
 }
 
-.fa-star{
+.fa-star {
   font-size: 20px;
   transition: 500ms;
-  color:white;
+  color: white;
 }
 
 /* HOVER */
-.jogo:hover{
+.jogo:hover {
   /* -webkit-transform: scale(1.1); */
   /* -ms-transform: scale(1.1); */
   transform: scale(1.1);
   z-index: 100;
   /* background-color: #1c1c1c; */
-  background-image:linear-gradient(#0b0b0b, #ff5d784b);
-  background-color: none  ;
+  background-image: linear-gradient(#0b0b0b, #ff5d784b);
+  background-color: none;
   transition: 500ms;
   box-shadow: none;
 }
 
-.jogo:hover::before{
+.jogo:hover::before {
   transition: 500ms;
   width: 60px;
   height: 60px;
 }
 
-.jogo:hover::after{
+.jogo:hover::after {
   transition: 500ms;
   width: 60px;
   height: 60px;
@@ -412,12 +412,12 @@ main {
   left: unset; */
 }
 
-.jogo:hover .imagem_jogo{
+.jogo:hover .imagem_jogo {
 
   display: none;
 }
 
-.jogo:hover #video_jogo{
+.jogo:hover #video_jogo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,13 +425,13 @@ main {
   padding-bottom: 0;
 }
 
-.jogo:hover .title{
+.jogo:hover .title {
   color: #ffffff;
   font-size: 20px;
 
 }
 
-.jogo:hover .short_description{
+.jogo:hover .short_description {
   color: #ffffff;
   display: flex;
   top: 55%;
@@ -441,20 +441,20 @@ main {
   font-size: 12px;
 }
 
-.jogo:hover .div_jogo_conteudo_footer{
- 
+.jogo:hover .div_jogo_conteudo_footer {
+
   /* background-color: #0066A2; */
-  margin-top: 50%;   
+  margin-top: 50%;
   /* margin-bottom: 10px; */
-  
+
 }
 
-.favoritado{
+.favoritado {
   transition: 500ms;
   color: yellow;
 }
 
-.icon_card{
+.icon_card {
   width: 20px;
 }
 
@@ -462,7 +462,7 @@ main {
 
 /* =================jogo destaque ==================== */
 
-.destaque_descricao{
+.destaque_descricao {
   display: flex;
   width: 35%;
   height: 90%;
@@ -472,12 +472,12 @@ main {
   color: white;
 }
 
-.destaque_descricao #teste_imagem{
+.destaque_descricao #teste_imagem {
 
   box-shadow: 1px 1px 5px #0e0e0e;
 }
 
-.conteudo_destaque{
+.conteudo_destaque {
   display: flex;
   flex-direction: column;
 }
@@ -561,7 +561,7 @@ main {
 
 .jogo:hover .div_jogo_conteudo_footer {
 
-  background-color: transparent; 
+  background-color: transparent;
   margin-top: 50%;
   margin-bottom: 10px;
 
@@ -617,7 +617,7 @@ main {
 .conteudo_destaque {
   display: flex;
   flex-direction: column;
-  background-color: #0b0b0b;
+  background-color: transparent;
 }
 
 .home_jogo_destaque {
@@ -631,23 +631,25 @@ main {
   background-image: linear-gradient(45deg, #0d0a0a0c, #61114225, #7e115831, #c5185234);
   background-size: 300% 300%;
   animation: colors 15s ease infinite;
-  
+
   box-shadow: 1px 1px 10px #d81e5c8e;
   z-index: 2;
   /* position: relative; */
 }
 
 @keyframes colors {
-  0%{
+  0% {
     background-position: 0% 50%;
   }
-  50%{
+
+  50% {
     background-position: 100% 50%;
   }
-  100%{
+
+  100% {
     background-position: 0% 50%;
   }
-  
+
 }
 
 .jogo_destaque_conteudo {
@@ -837,7 +839,7 @@ main {
 
 /* FAVORITOS */
 
-#nofav{
+#nofav {
   color: #ffffff;
   height: 200px;
   font-size: 2rem;
@@ -849,7 +851,7 @@ main {
 
 @media screen and (max-width:800px) {
 
-  .short_description{
+  .short_description {
     display: none;
   }
 
@@ -998,23 +1000,13 @@ main {
     flex-direction: row;
   }
 
-  .short_description{
+  .short_description {
     display: none;
   }
 
-  /* pra tirar o icone */
-  .category_title {
-    /* width: 100%;
-    margin-left: 14%;
-    vertical-align: middle;
-    vertical-align: top;
-    margin-right: 2%;
-    font-size: 10px; */
-    /* display: none; */
-  }
 
-/* ==========jogo destaque FIM ==================== */
 
-/* PUCMAN */
+  /* ==========jogo destaque FIM ==================== */
+
+  /* PUCMAN */
 }
-
