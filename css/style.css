@@ -84,11 +84,16 @@ header .plataforms a {
 }
 
 header .plataforms a:hover {
-  color: #00fff7;
+  color: #ffffff;
 }
 
+header .plataforms a:hover{
+
+  background-color: #ad194a75;
+} 
+
 .selected {
-  color: #00fff7 !important;
+  color: #fff !important;
 }
 
 header .fav {
@@ -110,8 +115,8 @@ header .fav i {
 
 
 
-header .fav:hover {
-  background-color: #27CAD4;
+header .fav:hover{
+  background-color: #ad194a75;
   transition: 0.3s;
 }
 
@@ -132,7 +137,7 @@ header .fav:hover {
 
   display: flex;
   justify-content: center;
-} */
+} 
 
 .container_side_bar {
   display: flex;
@@ -140,9 +145,7 @@ header .fav:hover {
   gap: 4vh;
   flex-direction: column;
   margin: 0vh;
-
   align-items: center;
-
 }
 
 .home_side_bar .container_side_bar .home {
@@ -172,11 +175,11 @@ header .fav:hover {
 .category {
   width: 100%;
   height: 60px;
-  margin-top: 20%; */
+  margin-top: 20%; 
   color: white;
   text-decoration: none;
   display: flex;
-  align-items: center; */
+  align-items: center; 
   cursor: pointer;
   color: #d81e5b;
   letter-spacing: 2.5px;
@@ -193,8 +196,6 @@ header .fav:hover {
   vertical-align: top;
   margin-right: 2%;
 }
-
-.category_title {}
 
 .home_side_bar_options {
   height: 75vh;
@@ -244,7 +245,7 @@ header .fav:hover {
   padding-top: 10px;
   display: flex;
   gap: 10px;
-  background-color: #0f0f0f; */
+  background-color: #0f0f0f; 
   /* background-color: #1c1c1c; */
   /* background-color: none; */
   /* background-image:linear-gradient(#0b0b0b, #ff5d784b); */
@@ -255,9 +256,9 @@ header .fav:hover {
   transition: 500ms;
   justify-content: space-around;
   position: relative;
-} 
 
-
+  box-shadow: 1px 1px 9px #d81e5c63;
+}
 
  .jogo::before {
   content: '';
@@ -290,7 +291,7 @@ header .fav:hover {
 
  .jogo #video_jogo {
 
-  display: none; */
+  display: none; 
   width: 73%;
   display: flex;
   position: absolute; 
@@ -322,8 +323,133 @@ header .fav:hover {
   font-family: 'Titillium Web', sans-serif;
 }
 
- .div_jogo_conteudo_footer {
+.div_jogo_conteudo_footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 90px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div_jogo_conteudo_footer button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 100%;
+    background: #00000047;
+    color: white;
+    font: bold 12px arial, sans-serif;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.fa-star{
+  font-size: 20px;
+  transition: 500ms;
+  color:white;
+}
+
+/* HOVER */
+.jogo:hover{
+  /* -webkit-transform: scale(1.1); */
+  /* -ms-transform: scale(1.1); */
+  transform: scale(1.1);
+  z-index: 100;
+  /* background-color: #1c1c1c; */
+  background-image:linear-gradient(#0b0b0b, #ff5d784b);
+  background-color: none  ;
+  transition: 500ms;
+  box-shadow: none;
+}
+
+.jogo:hover::before{
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+}
+
+.jogo:hover::after{
+  transition: 500ms;
+  width: 60px;
+  height: 60px;
+  /* border-bottom: 5px solid #d81e5b;
+  border-right: 5px solid #d81e5b;
+  border-left: none;
+  right: 0;
+  left: unset; */
+}
+
+.jogo:hover .imagem_jogo{
+
+  display: none;
+}
+
+.jogo:hover #video_jogo{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.jogo:hover .title{
+  color: #ffffff;
+  font-size: 20px;
+
+}
+
+.jogo:hover .short_description{
+  color: #ffffff;
+  display: flex;
+  top: 55%;
+  right: 20px;
+  left: 20px;
+  position: absolute;
+  /* padding-bottom: 30px; */
+  font-size: 14px;
+}
+
+.jogo:hover .div_jogo_conteudo_footer{
+ 
+  /* background-color: #0066A2; */
+  margin-top: 50%;   
+  /* margin-bottom: 10px; */
+  
+}
+
+.favoritado{
+  transition: 500ms;
+  color: yellow;
+}
+
+.icon_card{
+  width: 20px;
+}
+
+/* FIM HOVER*/
+
+/* =================jogo destaque ==================== */
+
+.destaque_descricao{
+  display: flex;
+  width: 35%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.conteudo_destaque{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.home_jogo_destaque {
+  display: flex;
+  align-items: center;
   flex-direction: row;
   width: 100%;
   height: 90px;
@@ -356,7 +482,7 @@ header .fav:hover {
   transform: scale(1.1);
   z-index: 100;
   background-color: #1c1c1c;
-  background-image: linear-gradient(#0b0b0b, #ff5d784b); */
+  background-image: linear-gradient(#0b0b0b, #ff5d784b); 
   background-color: none;
   transition: 500ms;
 } 
@@ -520,3 +646,23 @@ header .fav:hover {
 
 
 
+/* ==========jogo destaque FIM ==================== */
+
+
+/* PUCMAN */
+
+.loading-pucman {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+}
+.pucman {
+  margin: auto;
+  background: rgb(21 21 21);
+  width: 200px;
+  height: 200px;
+  display: block;
+  shape-rendering: auto;
+  animation-play-state: running;
+  animation-delay: 0s;
+}

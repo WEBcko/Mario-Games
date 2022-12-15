@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
-    
+
   <link rel="shortcut icon" href="/public/Shadow_The_Headhog.png" type="image/x-icon">
   <script src="https://kit.fontawesome.com/9ede36cb5d.js" crossorigin="anonymous"></script>
   <title>Mario Games</title>
@@ -27,35 +27,35 @@
   <main>
     <div class="home_side_bar">
       <div class="categorys">
-              <a role="button" class="category selected" onclick="filterGames(this)" data-category="home">
-                <span class="category_title"> <i class="fa-solid fa-house"></i> HOME </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="shooter">
-                <span class="category_title"> <i class="fa-solid fa-crosshairs"></i> SHOOTER </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="mmorpg">
-                <span class="category_title"> <i class="fa-solid fa-globe"></i> MMORPG </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="strategy">
-                <span class="category_title"> <i class="fa-solid fa-chess"></i> STRATEGY </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="fighting">
-                <span class="category_title"> <i class="fa-solid fa-hand-fist"></i> FIGHTING </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="card">
-                <span class="category_title"> <i class="fa-brands fa-cc-diners-club"></i> CARD </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="battle-royale">
-                <span class="category_title"> <i class="fa-solid fa-parachute-box"></i>BATTLE ROYALE</span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="space">
-                <span class="category_title"> <i class="fa-solid fa-rocket"></i> SPACE </span>
-              </a>
-              <a role="button" class="category" onclick="filterGames(this)" data-category="permadeath">
-                <span class="category_title"> <i class="fa-solid fa-skull"></i> PERMADEATH </span>
-              </a>
+        <a role="button" class="category selected" onclick="filterGames(this)" data-category="home">
+          <span class="category_title"> <i class="fa-solid fa-house"></i> HOME </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="shooter">
+          <span class="category_title"> <i class="fa-solid fa-crosshairs"></i> SHOOTER </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="mmorpg">
+          <span class="category_title"> <i class="fa-solid fa-globe"></i> MMORPG </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="strategy">
+          <span class="category_title"> <i class="fa-solid fa-chess"></i> STRATEGY </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="fighting">
+          <span class="category_title"> <i class="fa-solid fa-hand-fist"></i> FIGHTING </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="card">
+          <span class="category_title"> <i class="fa-brands fa-cc-diners-club"></i> CARD </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="battle-royale">
+          <span class="category_title"> <i class="fa-solid fa-parachute-box"></i> BATTLE ROYALE </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="space">
+          <span class="category_title"> <i class="fa-solid fa-rocket"></i> SPACE </span>
+        </a>
+        <a role="button" class="category" onclick="filterGames(this)" data-category="permadeath">
+          <span class="category_title"> <i class="fa-solid fa-skull"></i> PERMADEATH </span>
+        </a>
       </div>
-            
+
 
     </div>
 
@@ -64,14 +64,48 @@
     </div>
 
     <div class="home_jogos" id="home_jogos">
-      
+
 
     </div>
 
 
-    <div class="home_jogos_carregar_mais">
-      <button type="button" class="botao_carregar_mais" onclick="MostrarJogos()">CARREGAR +</button>
+    <div class="loading-pucman">
+      <?xml version="1.0" encoding="utf-8"?>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="pucman" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <g>
+          <circle cx="60" cy="50" r="4" fill="#ffffff">
+            <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1" begin="-0.67s">
+            </animate>
+            <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1" keyTimes="0;0.2;1"
+              begin="-0.67s"></animate>
+          </circle>
+          <circle cx="60" cy="50" r="4" fill="#ffffff">
+            <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1" begin="-0.33s">
+            </animate>
+            <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1" keyTimes="0;0.2;1"
+              begin="-0.33s"></animate>
+          </circle>
+          <circle cx="60" cy="50" r="4" fill="#ffffff">
+            <animate attributeName="cx" repeatCount="indefinite" dur="1s" values="95;35" keyTimes="0;1" begin="0s">
+            </animate>
+            <animate attributeName="fill-opacity" repeatCount="indefinite" dur="1s" values="0;1;1" keyTimes="0;0.2;1"
+              begin="0s"></animate>
+          </circle>
+        </g>
+        <g transform="translate(-15 0)">
+          <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#ffff00" transform="rotate(90 50 50)"></path>
+          <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#ffff00">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+              values="0 50 50;45 50 50;0 50 50" keyTimes="0;0.5;1"></animateTransform>
+          </path>
+          <path d="M50 50L20 50A30 30 0 0 1 80 50Z" fill="#ffff00">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s"
+              values="0 50 50;-45 50 50;0 50 50" keyTimes="0;0.5;1"></animateTransform>
+          </path>
+        </g>
+      </svg>
     </div>
+
   </main>
 
   <footer>

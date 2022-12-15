@@ -18,6 +18,9 @@ const jogo_banner = document.getElementById("home_jogo_destaque");
 // DIV DE LISTA JOGOS
 let pai_de_todos = document.getElementById("home_jogos");
 
+// DIV COM LOADING PUCMAN
+const pucman = document.querySelector('.loading-pucman');
+
 // Faz o request e formata para json
 const consultAPI = async (cmp = "") => {
     try {
@@ -51,24 +54,21 @@ async function filterGames(cho) {
 
     let cmp = filterP + (filterC ? `${filterC}` : "");
 
-    console.log(cmp);
+    pucman.style.display = 'block';
     MostrarJogos(await consultAPI(cmp));
 
 }
 
 function MostrarJogos(data = jogosNow) {   
     
+    // REMOVE LOADING
+    pucman.style.display = 'none';
+
     jogosNow = data;
     
     let quant_jogos = document.querySelectorAll(".jogo").length;
 
-    favoritos_salvos = localStorage.getItem("favoritos");
-    favoritos_salvos = JSON.parse(favoritos_salvos);
-
-    if (favoritos_salvos == undefined) {
-        localStorage.setItem("favoritos", JSON.stringify([]));
-        favoritos_salvos = localStorage.getItem("favoritos");
-    }
+    favoritos_salvos = getFavoritos();
 
     let conteudo_jogo_destaque = `  <div class="video_content" >
                                         <video autoplay="true" loop="true" id="video_destaque">
@@ -103,13 +103,13 @@ function MostrarJogos(data = jogosNow) {
         let corpo = document.createElement("div");
         corpo.id = `jogo_${i}`
         corpo.className = `jogo`
-        corpo.setAttribute("onmouseover", "this.querySelector('#video_jogo').play()");
-        corpo.setAttribute("onmouseout", "this.querySelector('#video_jogo').pause();this.querySelector('#video_jogo').currentTime=0;");
+        corpo.setAttribute("onmouseover", "hoverVideo(this)");
+        corpo.setAttribute("onmouseout", "hoverVideo(this)");
 
         let conteudo = `<div class="container_jogo_imagem">
                             <a href="${data[i].game_url}" class="jogo_conteudo">
                                 <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
-                                <video loop="true" id="video_jogo">
+                                <video loop="true" muted="muted" id="video_jogo">
                                     <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
                                 </video>
                             </a> 
@@ -129,6 +129,22 @@ function MostrarJogos(data = jogosNow) {
 
 }
 
+function hoverVideo(div_jogo){
+    const video = div_jogo.querySelector('#video_jogo'); // Pega o video 
+
+    let rodando = video.currentTime > 0 && !video.paused && !video.ended && video.readyState > video.HAVE_CURRENT_DATA; // Verifica se ele ta rodando
+
+    if (!rodando) { // SENÃO ESTIVER RODANDO DA PLAY
+        video.play();
+        return;
+    }
+
+    // SE O VIDEO ESTIVER RODANDO RESETA E PAUSA
+    video.currentTime=0; 
+    video.pause();
+}
+
+
 // EXIBE OS JOGOS POR POPUALRIDADE NA HOME
 consultAPI().then(data => {
     
@@ -136,5 +152,10 @@ consultAPI().then(data => {
     
 });
 
-
-
+// CARREGA MAIS JOGOS NO SCROOL
+window.onscroll = function (e) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight + 70) { // VERIFICA SE THUMB DO SCROLL CHEGOU NO FIM
+        pucman.style.display = 'block';
+        MostrarJogos();
+    }
+};
