@@ -144,11 +144,11 @@ function hoverVideo(div_jogo){
 
 
 // EXIBE OS JOGOS POR POPUALRIDADE NA HOME
-// consultAPI().then(data => {
+consultAPI().then(data => {
     
-//     MostrarJogos(data);
+    MostrarJogos(data);
     
-// });
+});
 
 // CARREGA MAIS JOGOS NO SCROOL
 window.onscroll = function (e) {
