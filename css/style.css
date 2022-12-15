@@ -436,6 +436,11 @@ main {
   position: absolute;
   /* padding-bottom: 30px; */
   font-size: 14px;
+  white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
 }
 
 .jogo:hover .div_jogo_conteudo_footer{
