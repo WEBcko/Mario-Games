@@ -7,6 +7,7 @@ body {
   margin: 0px;
   font-family: 'Kdam Thmor Pro', sans-serif;
   background-color: #151515;
+
 }
 
 /* PUCMAN */
@@ -241,13 +242,16 @@ header .fav:hover {
 main {
   display: flex;
   flex-wrap: wrap;
-  background-color: #151515;
+  /* background-color: #151515; */
   margin-top: 10vh;
   margin-left: 14vw;
+
+  /* background: radial-gradient(ellipse at bottom, #9e176134 0%, #151515 100%); */
+  z-index: 1;
 }
 
 .home_jogos {
-  background-color: #151515;
+  /* background-color: #151515; */
   display: flex;
   text-align: center;
   flex-wrap: wrap;
@@ -462,11 +466,16 @@ main {
 .destaque_descricao{
   display: flex;
   width: 35%;
-  height: 100%;
+  height: 90%;
   flex-direction: column;
   justify-content: center;
   justify-content: space-evenly;
   color: white;
+}
+
+.destaque_descricao #teste_imagem{
+
+  box-shadow: 1px 1px 5px #0e0e0e;
 }
 
 .conteudo_destaque{
@@ -620,6 +629,26 @@ main {
   width: 100%;
   margin: 1%;
   background-color: #0d0a0a;
+  background-image: linear-gradient(45deg, #0d0a0a0c, #61114225, #7e115831, #c5185234);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+  
+  box-shadow: 1px 1px 10px #d81e5c8e;
+  z-index: 2;
+  /* position: relative; */
+}
+
+@keyframes colors {
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+  
 }
 
 .jogo_destaque_conteudo {
