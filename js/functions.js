@@ -1,5 +1,5 @@
 // Url da API
-const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games'
+const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games';
 
 // Parametros para consulta na API, metodo e header
 const options = {
