@@ -76,10 +76,14 @@ function MostrarJogos(data = jogosNow) {
                                         </video>
                                     </div>
                                     <div class="destaque_descricao">
-                                        <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        <div class="destaque_imagem"> 
+                                        <a  href="${data[0].game_url}" target="_blank"> 
+                                            <img id="teste_imagem" src="${data[0].thumbnail}" alt=""> 
+                                        </a>
+                                        </div>
                                         <div class="conteudo_destaque">
                                             <div class="alinha_botao">
-                                                <p class="jogo_destaque_conteudo">${data[0].title}</p>
+                                                <p class="jogo_destaque_conteudo_title">${data[0].title}</p>
                                                 <div class="div_jogos_destaque_botao_favoritos jogo_destaque_conteudo">
                                                     <button class="${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? " favoritados" : ""}" type="button" value="${data[0].id}" onclick="favoritos(this)"><i class="fa-solid fa-star ${favoritos_salvos.indexOf((data[0].id).toString()) != -1 ? "favoritado" : ""}"></i></ button>
                                                 </div>
@@ -104,14 +108,14 @@ function MostrarJogos(data = jogosNow) {
         corpo.setAttribute("onmouseover", "hoverVideo(this)");
         corpo.setAttribute("onmouseout", "hoverVideo(this)");
 
-        let conteudo = `<a href="${data[i].game_url}" class="jogo_conteudo">
-                            <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
-                            
-                            <video loop="true" muted="muted" id="video_jogo">
-                                <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
-                            </video>
-                        
-                        </a> 
+        let conteudo = `<div class="container_jogo_imagem">
+                            <a href="${data[i].game_url}" target="_blank" class="jogo_conteudo">
+                                <img src="${data[i].thumbnail}" alt="" id="thumbnail" class="imagem_jogo">
+                                <video loop="true" muted="muted" id="video_jogo">
+                                    <source src="https://www.freetogame.com/g/${data[i].id}/videoplayback.webm" type="video/webm">
+                                </video>
+                            </a> 
+                        </div>
                         <div> 
                             <p id="short_description" class="short_description">${data[i].short_description}</p> 
                         </div>
