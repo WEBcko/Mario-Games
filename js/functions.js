@@ -22,7 +22,7 @@ let pai_de_todos = document.getElementById("home_jogos");
 const pucman = document.querySelector('.loading-pucman');
 
 // Faz o request e formata para json
-const consultAPI = async (cmp = "") => {
+async function consultAPI(cmp = "")  {
     try {
         const response = await fetch(url + '?sort-by=popularity' + cmp, options);
         return await response.json();
