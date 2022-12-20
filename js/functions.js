@@ -68,7 +68,7 @@ function MostrarJogos(data = jogosNow) {
 
     let quant_jogos = document.querySelectorAll(".jogo").length;
 
-    favoritos_salvos = getFavoritos();
+    let favoritos_salvos = getFavoritos();
 
     if (data <= 0) {
         pai_de_todos.innerHTML = "<h1 id='nofav'>Nada aqui por enquanto...</h1>";
